@@ -1,3 +1,0 @@
-[submodule "GameEnginePrototype/externalLibs/spdlogging"]
-	path = GameEnginePrototype/externalLibs/spdlogging
-	url = https://github.com/gabime/spdlog
