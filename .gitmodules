@@ -1,0 +1,6 @@
+[submodule "GameEngineProto/globalLibs/glfw"]
+	path = GameEngineProto/globalLibs/glfw
+	url = https://github.com/ragi68/glfw
+[submodule "GameEnginePrototype/externalLibs/glfw"]
+	path = GameEnginePrototype/externalLibs/glfw
+	url = https://github.com/ragi68/glfw

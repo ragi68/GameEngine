@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Proto">
+      <UniqueIdentifier>{3913E70D-A527-0FBF-6EA9-B21EDA7C0BF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto\EventSystem">
+      <UniqueIdentifier>{6FF6FECA-DB0C-FD60-2484-888290D9CDE8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\PrecompiledHeaders.h" />
+    <ClInclude Include="src\Proto\Application.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\Entry.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\EntryCore.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\EventSystem\AppEvent.h">
+      <Filter>Proto\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\EventSystem\EventHeader.h">
+      <Filter>Proto\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\EventSystem\Keys.h">
+      <Filter>Proto\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
+      <Filter>Proto\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\logging.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ProtoHeader.h" />
+    <ClInclude Include="src\Proto\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\PrecompiledHeaders.cpp" />
+    <ClCompile Include="src\Proto\Application.cpp">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Proto\logging.cpp">
+      <Filter>Proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
