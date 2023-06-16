@@ -7,7 +7,7 @@
 namespace Proto {
 
 	Application::Application() {
-
+		window = std::unique_ptr<AbstractWin>(AbstractWin::windowGenerator());
 	}
 
 	Application::~Application() {
@@ -15,8 +15,9 @@ namespace Proto {
 	}
 	void Application::RunApp() {
 
-		WindowResize e(1280, 720);
-		PROTO_TRACE_MODULE(e);
-		while(true);
+		
+		while (running) {
+			window->UpdateWindow();
+		}
 	}
 }

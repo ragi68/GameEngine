@@ -22,11 +22,11 @@ namespace Proto {
 #define PROTO_TRACE_MODULE(...) ::Proto::logging::GetLogger()->trace(__VA_ARGS__);
 #define PROTO_INFO_MODULE(...) ::Proto::logging::GetLogger()->info(__VA_ARGS__);
 #define PROTO_FATAL_MODULE(...) ::Proto::logging::GetLogger()->fatal(__VA_ARGS__);
-#define PROTO_INFO_MODULE(...) ::Proto::logging::GetLogger()->critical(__VA_ARGS__);
+#define PROTO_CRITICAL_MODULE(...) ::Proto::logging::GetLogger()->critical(__VA_ARGS__);
 
 #define CLIENT_ERROR_MODULE(...) ::Proto::logging::GetLogger()->error(__VA_ARGS__);
 #define CLIENT_WARNING_MODULE(...) ::Proto::logging::GetLogger()->warn(__VA_ARGS__);
 #define CLIENT_TRACE_MODULE(...) ::Proto::logging::GetLogger()->trace(__VA_ARGS__);
 #define CLIENT_INFO_MODULE(...) ::Proto::logging::GetLogger()->info(__VA_ARGS__);
 #define CLIENT_FATAL_MODULE(...) ::Proto::logging::GetLogger()->fatal(__VA_ARGS__);
-#define CLIENT_INFO_MODULE(...) ::Proto::logging::GetLogger()->critical(__VA_ARGS__);
+#define CLIENT_CRITICAL_MODULE(...) ::Proto::logging::GetLogger()->critical(__VA_ARGS__);

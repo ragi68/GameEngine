@@ -6,7 +6,7 @@
 
 
 namespace Proto {
-	class PROTO_API MouseMoved : public Events {
+	class PROTO_API MouseMoved : public Events {//gives x-y of mouse
 	public:
 		MouseMoved(float x, float y) : 
 			m_X(x), m_Y(y) {}
@@ -24,7 +24,7 @@ namespace Proto {
 		float m_X, m_Y;
 	};
 
-	class PROTO_API MouseScroll : public Events {
+	class PROTO_API MouseScroll : public Events { //gives potential offset given by a scroll -> MoveWindow() -> inherits from mousescroll or use friend?
 	public: 
 		MouseScroll(float x_offset, float y_offset) : 
 			m_xOffset(x_offset), m_yOffset(y_offset) {}

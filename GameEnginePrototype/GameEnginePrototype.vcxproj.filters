@@ -36,6 +36,7 @@
     </ClInclude>
     <ClInclude Include="src\ProtoHeader.h" />
     <ClInclude Include="src\Proto\Window.h" />
+    <ClInclude Include="src\Window\WindowsApplication.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PrecompiledHeaders.cpp" />
@@ -45,5 +46,6 @@
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>Proto</Filter>
     </ClCompile>
+    <ClCompile Include="src\Window\WindowsApplication.cpp" />
   </ItemGroup>
 </Project>
