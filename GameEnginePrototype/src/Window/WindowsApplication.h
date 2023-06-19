@@ -13,7 +13,7 @@ namespace Proto{
 		void UpdateWindow() override; //allow base class override and set frame buffers
 
 		inline unsigned int GetWidth() const override { return windowData.Width; }
-		inline unsigned int GetWidth() const override { return windowData.Height; }
+		inline unsigned int GetHeight() const override { return windowData.Height; }
 
 		//window attributes -> overridded from base class
 		inline void EventCallBack(const EventCall& call) override { windowData.CallBack = call; }
@@ -30,8 +30,9 @@ namespace Proto{
 
 	private:
 		struct Data {
+			std::string name1;
 			unsigned int Width, Height;
-			EventCall& CallBack;
+			EventCall CallBack;
 			bool vsync;
 
 

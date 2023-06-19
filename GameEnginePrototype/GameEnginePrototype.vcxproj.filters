@@ -7,6 +7,9 @@
     <Filter Include="Proto\EventSystem">
       <UniqueIdentifier>{6FF6FECA-DB0C-FD60-2484-888290D9CDE8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\PrecompiledHeaders.h" />
@@ -31,12 +34,16 @@
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
       <Filter>Proto\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\Window.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\logging.h">
       <Filter>Proto</Filter>
     </ClInclude>
     <ClInclude Include="src\ProtoHeader.h" />
-    <ClInclude Include="src\Proto\Window.h" />
-    <ClInclude Include="src\Window\WindowsApplication.h" />
+    <ClInclude Include="src\Window\WindowsApplication.h">
+      <Filter>Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PrecompiledHeaders.cpp" />
@@ -46,6 +53,8 @@
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>Proto</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\WindowsApplication.cpp" />
+    <ClCompile Include="src\Window\WindowsApplication.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

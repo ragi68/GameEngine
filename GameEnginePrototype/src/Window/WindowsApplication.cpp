@@ -51,11 +51,17 @@ namespace Proto {
 
 	}
 
+	bool WindowsApplication::VSyncEnabled() const
+	{
+		return windowData.vsync;
+	}
+
 	void WindowsApplication::UpdateWindow() {
 		glfwPollEvents(); //-> processes events and returns result immediately. 
 		glfwSwapBuffers(window); //sets target of double-ended frame buffer to the window created 
-		
+
 	}
 
-
 }
+
+

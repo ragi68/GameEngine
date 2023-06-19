@@ -25,7 +25,7 @@ namespace Proto {
 		virtual ~AbstractWin() {}																			//|
 																											//|
 		//is what it says																					//|
-		virtual void UpdateWindow() const = 0;																//|
+		virtual void UpdateWindow() = 0;																    //|
 																											//|
 		//debug stuff																						//|
 		virtual unsigned int GetWidth() const = 0;															//|
@@ -36,7 +36,7 @@ namespace Proto {
 		virtual void EventCallBack(const EventCall& call) = 0; //makes a function to collect events dispatched to window layer. 
 		//sets vsync for window framerate optimization
 		virtual void VSync(bool enable) = 0;
-		virtual bool VSyncEnabled() = 0;
+		virtual bool VSyncEnabled() const = 0;
 
 		static AbstractWin* windowGenerator(const WindowSize& size = WindowSize());//createwindow is a pre-defined macro with nodef, so it cannot find it. 
 

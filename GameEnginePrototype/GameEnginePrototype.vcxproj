@@ -160,9 +160,9 @@
     <ClInclude Include="src\Proto\EventSystem\EventHeader.h" />
     <ClInclude Include="src\Proto\EventSystem\Keys.h" />
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h" />
+    <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
-    <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Window\WindowsApplication.h" />
   </ItemGroup>
   <ItemGroup>
