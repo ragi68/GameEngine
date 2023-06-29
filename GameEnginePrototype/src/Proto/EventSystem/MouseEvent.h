@@ -63,7 +63,7 @@ namespace Proto {
 		std::string toString() const override{
 			std::stringstream ss;
 			ss << "Clicks Done: " << m_ButtonNum;
-			ss.str();
+			return ss.str();
 		}
 
 		EVENT_TYPE(MouseDown);
@@ -76,7 +76,7 @@ namespace Proto {
 		std::string toString() const override {
 			std::stringstream ss;
 			ss << "Clicks Done: " << m_ButtonNum;
-			ss.str();
+			return ss.str();
 		}
 
 		EVENT_TYPE(MouseUp);

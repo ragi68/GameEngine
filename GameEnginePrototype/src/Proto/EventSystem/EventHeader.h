@@ -56,9 +56,9 @@ namespace Proto {
 		
 
 	template<typename T>
-	bool dispatch(eventFn<T> f) {
-		if (m_event.GetEventType() == T::GetStaticType()) { //if event type is equal to the current event in our list, then make the function 'handled' and true
-			m_event.m_handled = func(*(T*)&m_event);
+	bool dispatch(eventFn<T> f) { //need to add in template for event-specific action
+		if (m_event.GetEvent() == T::GetStaticType()) { //if event type is equal to the current event in our list, then make the function 'handled' and true
+			m_event.m_handled = f(*(T*)&m_event);
 			return true;
 		}
 		return false; 
