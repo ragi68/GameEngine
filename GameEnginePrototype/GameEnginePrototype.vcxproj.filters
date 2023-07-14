@@ -34,6 +34,12 @@
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
       <Filter>Proto\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\LayerClass.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\Stackable.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\Window.h">
       <Filter>Proto</Filter>
     </ClInclude>
@@ -48,6 +54,12 @@
   <ItemGroup>
     <ClCompile Include="src\PrecompiledHeaders.cpp" />
     <ClCompile Include="src\Proto\Application.cpp">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Proto\LayerClass.cpp">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Proto\Stackable.cpp">
       <Filter>Proto</Filter>
     </ClCompile>
     <ClCompile Include="src\Proto\logging.cpp">

@@ -55,14 +55,17 @@ project "GameEnginePrototype"
 	--filters to define macros for different configurations
 	filter "configurations:Debug"
 		defines "DEBUG_APP"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RELEASE_PROTO"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DISTRIBUTION_VERSION"
+		buildoptions "/MD"
 		optimize "On"
 
 	--later multithread support??
@@ -103,12 +106,15 @@ project "Prototype"
 	--filters to define macros for different configurations
 	filter "configurations:Debug"
 		defines "DEBUG_APP"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RELEASE_PROTO"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DISTRIBUTION_VERSION"
+		buildoptions "/MD"
 		optimize "On"

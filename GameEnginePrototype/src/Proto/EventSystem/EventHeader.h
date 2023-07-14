@@ -42,7 +42,6 @@ namespace Proto {
 			return GetFlags() & category;
 		}
 
-	protected:
 		bool m_handled = false;
 
 	};
