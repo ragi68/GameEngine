@@ -4,6 +4,8 @@
 #include "Proto/EventSystem/Keys.h"
 #include "Proto/EventSystem/MouseEvent.h"
 #include "Proto/EventSystem/AppEvent.h"
+#include "glad/glad.h"
+
 
 namespace Proto {
 	static bool windowInit = false;
@@ -38,6 +40,8 @@ namespace Proto {
 
 		window = glfwCreateWindow((int)size.width, (int)size.height, "Proto Engine", nullptr, nullptr); //create window with nullptr return
 		glfwMakeContextCurrent(window); //makes OpenGL context of window on current calling thread, meaing only one thread of executables every time a window is open. 
+		int loader = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		PROTO_CORE_LOG(status, "GLAD Init Failed.")
 		glfwSetWindowUserPointer(window, &windowData);
 		VSync(true);
 

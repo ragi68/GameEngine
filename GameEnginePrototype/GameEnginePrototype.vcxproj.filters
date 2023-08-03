@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="OpenGLImplementation">
+      <UniqueIdentifier>{108F74D8-FC1D-FEA1-A53C-129D91AA0E48}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Proto">
       <UniqueIdentifier>{3913E70D-A527-0FBF-6EA9-B21EDA7C0BF0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Proto\EventSystem">
       <UniqueIdentifier>{6FF6FECA-DB0C-FD60-2484-888290D9CDE8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Proto\Layers">
+      <UniqueIdentifier>{D8AFD4DB-C412-6480-6D98-9C3659DA2F03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto\Layers\Imgui">
+      <UniqueIdentifier>{222F88E0-0E13-4936-7773-4389637633B8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Window">
       <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\OpenGLImplementation\imgui_impl_opengl3.h">
+      <Filter>OpenGLImplementation</Filter>
+    </ClInclude>
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h">
       <Filter>Proto</Filter>
@@ -37,6 +49,9 @@
     <ClInclude Include="src\Proto\LayerClass.h">
       <Filter>Proto</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h">
+      <Filter>Proto\Layers\Imgui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\Stackable.h">
       <Filter>Proto</Filter>
     </ClInclude>
@@ -52,12 +67,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp">
+      <Filter>OpenGLImplementation</Filter>
+    </ClCompile>
     <ClCompile Include="src\PrecompiledHeaders.cpp" />
     <ClCompile Include="src\Proto\Application.cpp">
       <Filter>Proto</Filter>
     </ClCompile>
     <ClCompile Include="src\Proto\LayerClass.cpp">
       <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp">
+      <Filter>Proto\Layers\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Proto\Stackable.cpp">
       <Filter>Proto</Filter>

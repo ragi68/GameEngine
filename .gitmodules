@@ -4,3 +4,6 @@
 [submodule "GameEnginePrototype/externalLibs/glfw"]
 	path = GameEnginePrototype/externalLibs/glfw
 	url = https://github.com/ragi68/glfw
+[submodule "GameEnginePrototype/externalLibs/ImGui"]
+	path = GameEnginePrototype/externalLibs/ImGui
+	url = https://github.com/ragi68/imgui

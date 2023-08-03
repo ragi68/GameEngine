@@ -16,15 +16,24 @@ namespace Proto {
 
 		void Event(Events& e);
 
+		inline static Application& Get() {
+			return *s_Instance;
+		}
+
 		//layer push/pop
 		void PushLayer(LayerClass* layer);
 		void PushBelowLayer(LayerClass* layer);
+
+		inline AbstractWin& GetRef() {
+			return *window;
+		}
 
 	private:
 		bool WindowClose(CloseWindow& event);
 		std::unique_ptr<AbstractWin> window;
 		bool running = true;
 		Stackable layer_stack;
+		static Application* s_Instance;
 	};
 
 

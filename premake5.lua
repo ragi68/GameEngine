@@ -5,9 +5,14 @@ workspace "GameEngineProto"
 outputDirectory = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" --sets output directory extension dynamically. Format is {Configuration}-{System(OS)}-{Architectire(x32/x64)}
 
 IncludeDir = {}
-IncludeDir["glfw"] = "GameEnginePrototype/externalLibs/glfw"
+IncludeDir["glfw"] = "GameEnginePrototype/externalLibs/glfw/include"
+IncludeDir["opengl"] = "GameEnginePrototype/externalLibs/opengl/include"
+IncludeDir["imgui"] = "GameEnginePrototype/externalLibs/ImGui"
+
 
 include "GameEnginePrototype/externalLibs/glfw"
+include "GameEnginePrototype/externalLibs/OpenGL"
+include "GameEnginePrototype/externalLibs/ImGui"
 
 
 project "GameEnginePrototype"
@@ -29,11 +34,15 @@ project "GameEnginePrototype"
 	includedirs{
 		"%{prj.name}/src",
 		"%{prj.name}/externalLibs/spdlogging/include", --include directories in project building 
-		"%{IncludeDir.glfw}"
+		"%{IncludeDir.glfw}",
+		"%{IncludeDir.opengl}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links{
 		"glfw",
+		"opengl",
+		"imgui",
 		"opengl32.lib"
 	}
 	
@@ -46,7 +55,8 @@ project "GameEnginePrototype"
 
 		defines{
 			"PROTO_PLATFORM_WINDOWS",
-			"PROTO_BUILD_DLL"
+			"PROTO_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands{

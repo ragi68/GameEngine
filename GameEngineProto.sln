@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEnginePrototype", "GameEnginePrototype\GameEnginePrototype.vcxproj", "{0B1A9242-777B-6F50-00E9-B5026C49A60F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "GameEnginePrototype\externalLibs\ImGui\ImGui.vcxproj", "{C0FF640D-2C14-8DBE-F595-301E616989EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL", "GameEnginePrototype\externalLibs\OpenGL\OpenGL.vcxproj", "{8A864AC8-7628-759E-5FE3-88F24B24FCEE}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Prototype", "Prototype\Prototype.vcxproj", "{3BB58105-A71F-367C-F05D-E7215C0714D1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glfw", "GameEnginePrototype\externalLibs\glfw\glfw.vcxproj", "{9563977C-819A-980D-2A87-7E10169D140F}"
@@ -20,6 +24,18 @@ Global
 		{0B1A9242-777B-6F50-00E9-B5026C49A60F}.Dist|x64.Build.0 = Dist|x64
 		{0B1A9242-777B-6F50-00E9-B5026C49A60F}.Release|x64.ActiveCfg = Release|x64
 		{0B1A9242-777B-6F50-00E9-B5026C49A60F}.Release|x64.Build.0 = Release|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|x64.ActiveCfg = Debug|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|x64.Build.0 = Debug|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|x64.ActiveCfg = Dist|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|x64.Build.0 = Dist|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.ActiveCfg = Release|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.Build.0 = Release|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Debug|x64.ActiveCfg = Debug|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Debug|x64.Build.0 = Debug|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Dist|x64.ActiveCfg = Dist|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Dist|x64.Build.0 = Dist|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Release|x64.ActiveCfg = Release|x64
+		{8A864AC8-7628-759E-5FE3-88F24B24FCEE}.Release|x64.Build.0 = Release|x64
 		{3BB58105-A71F-367C-F05D-E7215C0714D1}.Debug|x64.ActiveCfg = Debug|x64
 		{3BB58105-A71F-367C-F05D-E7215C0714D1}.Debug|x64.Build.0 = Debug|x64
 		{3BB58105-A71F-367C-F05D-E7215C0714D1}.Dist|x64.ActiveCfg = Dist|x64

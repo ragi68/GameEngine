@@ -1,6 +1,6 @@
 #pragma once
 #include "Proto/Window.h"
-#include <include/GLFW/glfw3.h> //fullpath -> wtf is the error for
+#include <GLFW/glfw3.h> 
 namespace Proto{
 	class WindowsApplication : public AbstractWin
 	{

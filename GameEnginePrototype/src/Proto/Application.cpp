@@ -7,7 +7,12 @@
 
 namespace Proto {
 
+	Application* Application::s_Instance; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app. 
+
 	Application::Application() {
+
+		PROTO_CORE_LOG(!s_Instance, "App is already open."); 
+		s_Instance = this;
 		window = std::unique_ptr<AbstractWin>(AbstractWin::windowGenerator());
 		window->EventCallBack(std::bind(&Application::Event, this, std::placeholders::_1));
 		//window->EventCallBack()
@@ -46,9 +51,11 @@ namespace Proto {
 
 	void Application::PushLayer(LayerClass* layers) {
 		layer_stack.PushLayer(layers);
+		layers->OnStack(); 
 	}
 
 	void Application::PushBelowLayer(LayerClass* layer) {
 		layer_stack.PushBelowLayers(layer);
+		layer->OnStack(); 
 	}
 }

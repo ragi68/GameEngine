@@ -79,8 +79,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;DEBUG_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DEBUG_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,8 +103,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;RELEASE_PROTO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;RELEASE_PROTO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -131,8 +131,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;DISTRIBUTION_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DISTRIBUTION_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -155,6 +155,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\OpenGLImplementation\imgui_impl_opengl3.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
     <ClInclude Include="src\Proto\Entry.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Proto\EventSystem\Keys.h" />
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\Proto\LayerClass.h" />
+    <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h" />
     <ClInclude Include="src\Proto\Stackable.h" />
     <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
@@ -171,11 +173,13 @@
     <ClInclude Include="src\Window\WindowsApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Proto\Application.cpp" />
     <ClCompile Include="src\Proto\LayerClass.cpp" />
+    <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
     <ClCompile Include="src\Window\WindowsApplication.cpp" />
@@ -183,6 +187,12 @@
   <ItemGroup>
     <ProjectReference Include="externalLibs\glfw\glfw.vcxproj">
       <Project>{9563977C-819A-980D-2A87-7E10169D140F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="externalLibs\OpenGL\OpenGL.vcxproj">
+      <Project>{8A864AC8-7628-759E-5FE3-88F24B24FCEE}</Project>
+    </ProjectReference>
+    <ProjectReference Include="externalLibs\ImGui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

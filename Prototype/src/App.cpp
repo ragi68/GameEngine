@@ -22,6 +22,7 @@ class ProtoType : public Proto::Application {
 public:
 	ProtoType() {
 		PushLayer(new FirstLayer()); 
+		PushLayer(new Proto::IMGUI_Layer());
 
 	}
 
