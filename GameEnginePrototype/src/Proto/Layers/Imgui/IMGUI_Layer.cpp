@@ -3,7 +3,9 @@
 #include "OpenGLImplementation/imgui_impl_opengl3.h"
 #include "GLFW//glfw3.h"
 #include "Proto/Application.h"
-#include "imgui_demo.cpp"
+#include "Proto/EventSystem/EventHeader.h"
+#include "glad/glad.h"
+
 namespace Proto{
 	IMGUI_Layer::IMGUI_Layer() : LayerClass("GUI") {}
 
@@ -11,7 +13,16 @@ namespace Proto{
 
 	}
 
-	void IMGUI_Layer::OnEvent(Events& e) {
+	void IMGUI_Layer::OnEvent(Events& e) { //sends events collected through the dispatcher
+		EventDispatcher dispatcher(e);
+		dispatcher.dispatch<MouseDown>(Bind_Key(IMGUI_Layer::OnMouseDown));
+		dispatcher.dispatch<MouseUp>(Bind_Key(IMGUI_Layer::OnMouseUp));
+		dispatcher.dispatch<KeyPressed>(Bind_Key(IMGUI_Layer::OnKeyPressed));
+		dispatcher.dispatch<MouseMoved>(Bind_Key(IMGUI_Layer::OnMouseMove));
+		dispatcher.dispatch<KeyRelease>(Bind_Key(IMGUI_Layer::OnKeyReleased));
+		dispatcher.dispatch<MouseScroll>(Bind_Key(IMGUI_Layer::OnMouseScroll));
+		dispatcher.dispatch<CloseWindow>(Bind_Key(IMGUI_Layer::OnWindowClose));
+		dispatcher.dispatch<WindowResize>(Bind_Key(IMGUI_Layer::OnWindowResize));
 
 	}
 
@@ -30,7 +41,7 @@ namespace Proto{
 		ImGui::NewFrame();
 
 		static bool open = true;
-		ImGui::ShowDemoWindow(&open);
+		ImGui::ShowDemoWindow(&open); //wtf is happening Demo aint workin. 
 
 		ImGui::Render();
 
@@ -96,5 +107,52 @@ namespace Proto{
 
 	}
 
+	bool IMGUI_Layer::OnMouseDown(MouseDown& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetButton()] = true;
+
+		return false;
+	}
+	bool IMGUI_Layer::OnMouseUp(MouseUp& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetButton()] = false;
+
+		return false;
+	}
+	bool IMGUI_Layer::OnKeyPressed(KeyPressed& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = true; //sets the keycode keydown to true and stops function
+		return false;
+
+	}
+	bool IMGUI_Layer::OnKeyReleased(KeyRelease& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = false; //sets keydown to false for key
+		return false;
+	}
+	bool IMGUI_Layer::OnMouseMove(MouseMoved& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.MousePos = ImVec2(e.GetX(), e.GetY()); //sets mouse pos to the mouse pso
+		return false;
+	}
+	bool IMGUI_Layer::OnMouseScroll(MouseScroll& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseWheel += e.getYOffset(); //sets scroll whell to y-offset
+		return false;
+	}
+	bool IMGUI_Layer::OnWindowClose(CloseWindow& e) {
+
+		return false;
+	}
+	bool IMGUI_Layer::OnWindowResize(WindowResize& e) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(e.GetWidth(), e.GetHeight());//sets display width and height
+		io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
+		glViewport(0, 0, e.GetWidth(), e.GetHeight()); //sets width/height while keeping evertyhing else the same(Affine transformation)
+		return false;
+	}
+
+
 
 }
+

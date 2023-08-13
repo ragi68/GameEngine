@@ -14,11 +14,11 @@ namespace Proto {
 		inline unsigned int GetWidth() const {return m_width; }
 		inline unsigned int GetHeight() const{ return m_height; }
 
-		std::string toString() const override {
+		/*std::string toString() const override {
 			std::stringstream ss;
 			ss << "WindowResize: " << m_width << "x" << m_height;
 			return ss.str();
-		}
+		}*/
 
 		EVENT_TYPE(ResizeWindow)
 		EVENT_CATEGORY(EventAPP)

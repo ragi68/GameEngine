@@ -5,6 +5,7 @@
 
 
 namespace Proto {
+#define Bind_Key(fn) std::bind(&fn, this, std::placeholders::_1)
 	//all event types to use
 	enum class EventTypes {
 		no = 0, 

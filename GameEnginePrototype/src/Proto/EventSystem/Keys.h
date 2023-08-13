@@ -24,11 +24,11 @@ namespace Proto {
 			: KeyStates(keycode), m_repeats(reps) {}
 		inline int GetReps() const { return m_repeats;}
 
-		std::string toString() const override {
+		/*std::string toString() const override {
 			std::stringstream ss;
 			ss << "Key Pressed" << m_keycode << "\nRepeats: " << m_repeats;
 			return ss.str();
-		}
+		}*/
 
 		EVENT_TYPE(KeyPressed);
 	protected:

@@ -7,7 +7,7 @@
 
 namespace Proto {
 
-	Application* Application::s_Instance; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app. 
+	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app. 
 
 	Application::Application() {
 
@@ -42,11 +42,11 @@ namespace Proto {
 		
 		while (running) {
 			window->UpdateWindow();
+			for (LayerClass* layer : layer_stack) {
+				layer->Update();
+			}
 		}
 
-		for (LayerClass* layer : layer_stack ) {
-			layer->Update();
-		}
 	}
 
 	void Application::PushLayer(LayerClass* layers) {

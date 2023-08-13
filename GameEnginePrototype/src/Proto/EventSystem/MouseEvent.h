@@ -13,11 +13,11 @@ namespace Proto {
 
 		inline float GetX() const { return m_X; }
 		inline float GetY() const { return m_Y; }
-		std::string toString() const override {
+		/*std::string toString() const override {
 			std::stringstream ss;
 			ss << "corods: " << m_X << ", " << m_Y;
 			return ss.str();
-		}
+		}*/
 		EVENT_TYPE(MouseMove);
 		EVENT_CATEGORY(EventMOUSE | EventINPUT);
 	private: 
