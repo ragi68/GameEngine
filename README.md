@@ -13,3 +13,4 @@ Currently privately working on alternative to SPD logging, but mostly going to w
 
 GOAL: The entire point of this engine isn't to be the best or fastest. That is up to unity or uneral or something more commerical. My goal is to make this as customizable is possible as much as I can. This includes custom scripting with languages of choice, various render APIs, custom physics engine(built-in or PhysX or somthing like that), custom AI choices. Honestly, it should be drop-down after drop-dowmn for a lot of these. 
 
+Lmao forgor to clear frame buffer -  issue fixed
