@@ -41,7 +41,7 @@ namespace Proto{
 		ImGui::NewFrame();
 
 		static bool open = true;
-		ImGui::ShowDemoWindow(&open); //wtf is happening Demo aint workin. 
+		ImGui::ShowDemoWindow(&open); 
 
 		ImGui::Render();
 
@@ -137,6 +137,7 @@ namespace Proto{
 	}
 	bool IMGUI_Layer::OnMouseScroll(MouseScroll& e) {
 		ImGuiIO& io = ImGui::GetIO();
+		io.MouseWheel = e.getXOffset();//set scroll wheel yo x-offset
 		io.MouseWheel += e.getYOffset(); //sets scroll whell to y-offset
 		return false;
 	}

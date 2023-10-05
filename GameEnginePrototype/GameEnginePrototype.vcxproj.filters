@@ -65,6 +65,8 @@
     <ClInclude Include="src\Window\WindowsApplication.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderAPI\Vulkan.h" />
+    <ClInclude Include="src\RenderAPI\DirectX.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp">
@@ -89,5 +91,7 @@
     <ClCompile Include="src\Window\WindowsApplication.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderAPI\Vulkan.cpp" />
+    <ClCompile Include="src\RenderAPI\DirectX.cpp" />
   </ItemGroup>
 </Project>
