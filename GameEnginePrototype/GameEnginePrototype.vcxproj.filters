@@ -16,6 +16,9 @@
     <Filter Include="Proto\Layers\Imgui">
       <UniqueIdentifier>{222F88E0-0E13-4936-7773-4389637633B8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderAPI">
+      <UniqueIdentifier>{BF001F7C-2B6B-D3F2-74A9-8498E052B147}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Window">
       <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
       <Filter>Proto\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\InputHub.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\LayerClass.h">
       <Filter>Proto</Filter>
     </ClInclude>
@@ -62,11 +68,18 @@
       <Filter>Proto</Filter>
     </ClInclude>
     <ClInclude Include="src\ProtoHeader.h" />
+    <ClInclude Include="src\RenderAPI\DirectX.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderAPI\Vulkan.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Window\WindowsApplication.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\Vulkan.h" />
-    <ClInclude Include="src\RenderAPI\DirectX.h" />
+    <ClInclude Include="src\Window\WindowsInputHub.h">
+      <Filter>Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp">
@@ -88,10 +101,17 @@
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>Proto</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderAPI\DirectX.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderAPI\Vulkan.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
     <ClCompile Include="src\Window\WindowsApplication.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\Vulkan.cpp" />
-    <ClCompile Include="src\RenderAPI\DirectX.cpp" />
+    <ClCompile Include="src\Window\WindowsInputHub.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

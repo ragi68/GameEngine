@@ -155,7 +155,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\RenderAPI\DirectX.h" />
     <ClInclude Include="src\OpenGLImplementation\imgui_impl_opengl3.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
@@ -165,17 +164,19 @@
     <ClInclude Include="src\Proto\EventSystem\EventHeader.h" />
     <ClInclude Include="src\Proto\EventSystem\Keys.h" />
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h" />
+    <ClInclude Include="src\Proto\InputHub.h" />
     <ClInclude Include="src\Proto\LayerClass.h" />
     <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h" />
     <ClInclude Include="src\Proto\Stackable.h" />
     <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
-    <ClInclude Include="src\Window\WindowsApplication.h" />
+    <ClInclude Include="src\RenderAPI\DirectX.h" />
     <ClInclude Include="src\RenderAPI\Vulkan.h" />
+    <ClInclude Include="src\Window\WindowsApplication.h" />
+    <ClInclude Include="src\Window\WindowsInputHub.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\RenderAPI\DirectX.cpp" />
     <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -185,8 +186,10 @@
     <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
-    <ClCompile Include="src\Window\WindowsApplication.cpp" />
+    <ClCompile Include="src\RenderAPI\DirectX.cpp" />
     <ClCompile Include="src\RenderAPI\Vulkan.cpp" />
+    <ClCompile Include="src\Window\WindowsApplication.cpp" />
+    <ClCompile Include="src\Window\WindowsInputHub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="externalLibs\glfw\glfw.vcxproj">

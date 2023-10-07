@@ -8,7 +8,6 @@ namespace Proto{
 		WindowsApplication(const WindowSize& size);
 		virtual ~WindowsApplication();
 
-		GLFWwindow* window;
 
 		void UpdateWindow() override; //allow base class override and set frame buffers
 
@@ -24,11 +23,15 @@ namespace Proto{
 		void VSync(bool enabled) override;
 		bool VSyncEnabled() const override; //define in windowsapplication.cpp
 
+		inline void* GetWindowPointer() const { return window;  } //returns 
+
 	private:
 		virtual void Init(const WindowSize& size);
 		virtual void Destroy();
 
 	private:
+
+		GLFWwindow* window;
 		struct Data {
 			std::string name1;
 			unsigned int Width, Height;

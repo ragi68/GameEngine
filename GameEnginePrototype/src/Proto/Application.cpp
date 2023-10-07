@@ -25,7 +25,7 @@ namespace Proto {
 		for (auto i = layer_stack.end(); i != layer_stack.begin();) {
 			(*--i)->OnEvent(e);
 			if (e.m_handled) {
-				break;
+				break; //framebuffer implementation on windows plat code
 			}
 		}
 	}

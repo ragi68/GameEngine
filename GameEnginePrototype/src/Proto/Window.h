@@ -37,7 +37,7 @@ namespace Proto {
 		//sets vsync for window framerate optimization
 		virtual void VSync(bool enable) = 0;
 		virtual bool VSyncEnabled() const = 0;
-
+		virtual void* GetWindowPointer() const = 0; 
 		static AbstractWin* windowGenerator(const WindowSize& size = WindowSize());//createwindow is a pre-defined macro with nodef, so it cannot find it. 
 
 
