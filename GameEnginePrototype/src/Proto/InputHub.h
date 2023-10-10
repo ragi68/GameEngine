@@ -3,11 +3,18 @@
 namespace Proto {
 	class PROTO_API InputHub {
 	public:
-		static bool isKeyPressed(int keycode) { return inputINST->isPressedFunction(keycode); }
+		inline static bool isKeyPressed(int keycode) { return input->isPressedFunction(keycode); }
+		inline static bool isMousePressed(int button) { return input->isMousePressedFunction(button); }
+		inline static std::pair<float, float> GetCursorPosition() { return input->CursorPosition();  }
+
 
 	protected:
 		virtual bool isPressedFunction(int keycode) = 0;
-		static InputHub* inputINST;
+		virtual std::pair<float, float> CursorPosition() = 0;
+		virtual bool isMousePressedFunction(int button) = 0;
+
+	private: 
+		static InputHub* input;
 
 	};
 }

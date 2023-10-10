@@ -9,7 +9,10 @@ public:
 	}
 
 	void OnEvent(Proto::Events& e) override{
-
+		if (e.GetEvent() == Proto::EventTypes::KeyPressed) {
+			Proto::KeyPressed& e2 = (Proto::KeyPressed&)e;
+			PROTO_INFO_MODULE((char)e2.GetKeyCode()); 
+		}
 	}
 
 

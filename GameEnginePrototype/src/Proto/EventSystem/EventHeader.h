@@ -65,7 +65,7 @@ namespace Proto {
 	}
 
 	protected:
-		Events& m_event;
+		Events& m_event; //ref to events instance
 	};
 
 	inline std::ostream& operator<<(std::ostream& output, const Events& e) {

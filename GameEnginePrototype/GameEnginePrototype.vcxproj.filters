@@ -80,6 +80,7 @@
     <ClInclude Include="src\Window\WindowsInputHub.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\ASCII.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp">

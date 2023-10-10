@@ -41,7 +41,7 @@ namespace Proto {
 
 		std::string toString() const override {
 			std::stringstream ss;
-			ss << "Key Released";
+			//ss << "Key Released";
 			return ss.str();
 		}
 

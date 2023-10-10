@@ -24,7 +24,7 @@ namespace Proto {
 		bool OnWindowResize(WindowResize& e);
 		bool OnMouseMove(MouseMoved& e);
 		bool OnMouseScroll(MouseScroll& e);
-		bool OnCharQueue(); //have list of chars backed up and ready to type????
+		//bool OnCharQueue(); //have list of chars backed up and ready to type????
 	private:
 		float m_time = 0.0f;
 

@@ -20,7 +20,6 @@ namespace Proto {
 	void Application::Event(Events& e) {
 		EventDispatcher dispatcher(e); //create event dispatch object
 		dispatcher.dispatch<CloseWindow>(std::bind(&Application::WindowClose, this, std::placeholders::_1)); //binds dispatcher to event of closing window
-		PROTO_TRACE_MODULE("{0}", e);
 
 		for (auto i = layer_stack.end(); i != layer_stack.begin();) {
 			(*--i)->OnEvent(e);

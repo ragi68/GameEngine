@@ -39,7 +39,7 @@ namespace Proto {
 		}
 
 		window = glfwCreateWindow((int)size.width, (int)size.height, "Proto Engine", nullptr, nullptr); //create window with nullptr return
-		glfwMakeContextCurrent(window); //makes OpenGL context of window on current calling thread, meaing only one thread of executables every time a window is open. 
+		glfwMakeContextCurrent(window);                                                                                     //makes OpenGL context of window on current calling thread, meaing only one thread of executables every time a window is open. 
 		int loader = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		PROTO_CORE_LOG(status, "GLAD Init Failed.")
 		glfwSetWindowUserPointer(window, &windowData);
@@ -67,21 +67,18 @@ namespace Proto {
 				case GLFW_PRESS:
 				{
 					KeyPressed pressed(key, 0);
-					PROTO_INFO_MODULE("KeyPressed");
 					windowData.CallBack(pressed);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					KeyRelease release(key);
-					PROTO_INFO_MODULE("KeyReleased");
 					windowData.CallBack(release);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
 					KeyPressed pressed(key, 1);
-					PROTO_INFO_MODULE("KeyRepeat");
 					windowData.CallBack(pressed);
 					break;
 				}
@@ -97,13 +94,13 @@ namespace Proto {
 				case GLFW_PRESS: {
 					MouseDown mousedown(mods);
 					windowData.CallBack(mousedown);
-					PROTO_INFO_MODULE("MouseDown");
+
 					break;
 				}
 				case GLFW_RELEASE: {
 					MouseUp mouserelease(mods);
 					windowData.CallBack(mouserelease);
-					PROTO_INFO_MODULE("MouseUp");
+
 					break;
 				}
 			}
@@ -113,14 +110,14 @@ namespace Proto {
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
 			MouseScroll scroll((float)x_offset, (float)y_offset);
 			windowData.CallBack(scroll);
-			PROTO_INFO_MODULE("Scrolled");
+
 		});
 
 		glfwSetCursorPosCallback(window, [](GLFWwindow* window, double x_pos, double y_pos) {
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window); //bro i need a macro for this shit
 			MouseMoved moved((float)x_pos, (float)y_pos);
 			windowData.CallBack(moved);
-			PROTO_INFO_MODULE("Cursor Position");
+
 		});
 	}
 
