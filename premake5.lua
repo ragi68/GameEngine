@@ -8,11 +8,13 @@ IncludeDir = {}
 IncludeDir["glfw"] = "GameEnginePrototype/externalLibs/glfw/include"
 IncludeDir["opengl"] = "GameEnginePrototype/externalLibs/opengl/include"
 IncludeDir["imgui"] = "GameEnginePrototype/externalLibs/ImGui"
+IncludeDir["GLM"] = "GameEnginePrototype/externalLibs/GLM"
 
 
 include "GameEnginePrototype/externalLibs/glfw"
 include "GameEnginePrototype/externalLibs/OpenGL"
 include "GameEnginePrototype/externalLibs/ImGui"
+
 
 
 project "GameEnginePrototype"
@@ -28,7 +30,11 @@ project "GameEnginePrototype"
 
 	files{
 		"%{prj.name}/src/**.h", --takes all files in src with .h 
-		"%{prj.name}/src/**.cpp" --takes all files with .cpp
+		"%{prj.name}/src/**.cpp", --takes all files with .cpp
+		"%{prj.name}/externalLibs/GLM/glm/**.hpp",
+		"%{prj.name}/externalLibs/GlM/glm/**.inl",
+
+
 	}
 
 	includedirs{
@@ -36,14 +42,15 @@ project "GameEnginePrototype"
 		"%{prj.name}/externalLibs/spdlogging/include", --include directories in project building 
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.opengl}",
-		"%{IncludeDir.imgui}"
+		"%{IncludeDir.imgui}",
+		"%{IncludeDir.GLM}"
 	}
 
 	links{
 		"glfw",
 		"opengl",
 		"imgui",
-		"opengl32.lib"
+		"opengl32.lib",
 	}
 	
 
@@ -95,7 +102,8 @@ project "Prototype"
 	--include directories in project building 
 	includedirs{
 		"GameEnginePrototype/externalLibs/spdlogging/include",
-		"GameEnginePrototype/src"
+		"GameEnginePrototype/src",
+		"%{prj.name}/externalLibs/GLM/glm"
 	}
 
 	links{

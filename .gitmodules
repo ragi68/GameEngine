@@ -7,3 +7,6 @@
 [submodule "GameEnginePrototype/externalLibs/ImGui"]
 	path = GameEnginePrototype/externalLibs/ImGui
 	url = https://github.com/ragi68/imgui
+[submodule "GameEnginePrototype/externalLibs/GLM"]
+	path = GameEnginePrototype/externalLibs/GLM
+	url = https://github.com/g-truc/glm
