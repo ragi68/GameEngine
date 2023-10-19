@@ -6,6 +6,7 @@
 #include "Proto/EventSystem/EventHeader.h"
 #include "glad/glad.h"
 
+//adapted from example files of ImGui
 namespace Proto{
 	IMGUI_Layer::IMGUI_Layer() : LayerClass("GUI") {}
 
@@ -51,6 +52,10 @@ namespace Proto{
 
 	void IMGUI_Layer::OnPop() {
 
+	}
+
+	void IMGUI_Layer::OnRender()
+	{
 	}
 
 	void IMGUI_Layer::OnStack() {

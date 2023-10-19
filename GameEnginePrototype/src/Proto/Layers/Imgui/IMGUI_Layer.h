@@ -15,6 +15,8 @@ namespace Proto {
 		void OnEvent(Events& event);
 		void OnStack();
 		void OnPop();
+		void OnRender();
+
 	private:   
 		bool OnMouseDown(MouseDown& e);
 		bool OnKeyPressed(KeyPressed& e);
