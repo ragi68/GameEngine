@@ -43,9 +43,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\OpenGLImplementation">
-      <UniqueIdentifier>{87BCB3E2-73E1-0263-9C2C-E8F288B00181}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Proto">
       <UniqueIdentifier>{9021A4B3-FC8B-582A-45CA-09D0B173367F}</UniqueIdentifier>
     </Filter>
@@ -1314,9 +1311,6 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl">
       <Filter>externalLibs\GlM\glm\gtx</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGLImplementation\imgui_impl_opengl3.h">
-      <Filter>src\OpenGLImplementation</Filter>
-    </ClInclude>
     <ClInclude Include="src\PrecompiledHeaders.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -1379,9 +1373,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp">
-      <Filter>src\OpenGLImplementation</Filter>
-    </ClCompile>
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1392,6 +1383,9 @@
       <Filter>src\Proto</Filter>
     </ClCompile>
     <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp">
+      <Filter>src\Proto\Layers\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp">
       <Filter>src\Proto\Layers\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Proto\Stackable.cpp">

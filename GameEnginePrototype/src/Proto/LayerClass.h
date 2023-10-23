@@ -14,6 +14,7 @@ namespace Proto{
 		virtual void OnStack(){}
 		virtual void OnPop(){}
 		virtual void Update() {}
+		virtual void Render() {}
 		virtual void OnEvent(Events& event) {}
 
 		//to be implemented later

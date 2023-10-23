@@ -571,7 +571,6 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_angle.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_query.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl" />
-    <ClInclude Include="src\OpenGLImplementation\imgui_impl_opengl3.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
     <ClInclude Include="src\Proto\Entry.h" />
@@ -594,13 +593,13 @@
     <ClInclude Include="src\Window\WindowsInputHub.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\OpenGLImplementation\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Proto\Application.cpp" />
     <ClCompile Include="src\Proto\LayerClass.cpp" />
     <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp" />
+    <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
     <ClCompile Include="src\RenderAPI\DirectX.cpp" />

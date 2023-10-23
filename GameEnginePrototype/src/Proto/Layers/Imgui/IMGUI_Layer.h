@@ -11,21 +11,14 @@ namespace Proto {
 		IMGUI_Layer();
 		~IMGUI_Layer();
 
-		void Update();
-		void OnEvent(Events& event);
-		void OnStack();
-		void OnPop();
-		void OnRender();
+		virtual void Update() override;
+		virtual void OnStack() override;
+		virtual void OnPop() override;
+		virtual void Render() override;
+		
+		virtual void Init_Layer();
+		virtual void End_Layer(); 
 
-	private:   
-		bool OnMouseDown(MouseDown& e);
-		bool OnKeyPressed(KeyPressed& e);
-		bool OnMouseUp(MouseUp& e);
-		bool OnKeyReleased(KeyRelease& e);
-		bool OnWindowClose(CloseWindow& e);
-		bool OnWindowResize(WindowResize& e);
-		bool OnMouseMove(MouseMoved& e);
-		bool OnMouseScroll(MouseScroll& e);
 		//bool OnCharQueue(); //have list of chars backed up and ready to type????
 	private:
 		float m_time = 0.0f;
