@@ -21,7 +21,8 @@ namespace Proto{
 
 		private:
 		std::vector<LayerClass*> layer_stack;
-		std::vector<LayerClass*>::iterator iterator; //helps iterate over a vector
+		int layerIndex = 0; //helps iterate over a vector without using too much memory
+		//previous use of iterator created too many chances of memory leak compared to direct indexing. 
 
 	};
 }

@@ -3,7 +3,6 @@
 
 namespace Proto {
 	Stackable::Stackable() {
-		iterator = layer_stack.begin();
 
 	}
 
@@ -16,7 +15,8 @@ namespace Proto {
 	}
 
 	void Stackable::PushLayer(LayerClass* layer) { //insert a layerclass obejct into the vector object at position iterator, which is just the top
-		iterator = layer_stack.emplace(iterator, layer);
+		layer_stack.emplace(layer_stack.begin() + layerIndex, layer);
+		layerIndex++; //inserts layer into stack and then makes sure the layer is now on the nex.t 
 	}
 
 	void Stackable::PushBelowLayers(LayerClass* layers) {
@@ -27,7 +27,7 @@ namespace Proto {
 		auto i = std::find(layer_stack.begin(), layer_stack.end(), layer); //finds the location of the said layer in between the end and beginning
 		if (i != layer_stack.end()) {
 			layer_stack.erase(i);
-			iterator--;
+			layerIndex--;
 		}
 	}
 
@@ -39,3 +39,4 @@ namespace Proto {
 	}
 }
  //iterators are simply pointers that iterate through each memeory adress in the Vector object. Plus 1 each time means you move one more into the stack and into the next element. 
+//above line done thru integer indexing 

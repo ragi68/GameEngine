@@ -17,7 +17,8 @@ namespace Proto{
 	bool WindowsInputHub::isMousePressedFunction(int button) {
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetRef().GetWindowPointer());
 		int state = glfwGetMouseButton(window, button);
-		return state == GLFW_PRESS;
+		return state == GLFW_PRESS; 
+		//retuirns if a key was pressed. 
 	}
 
 	std::pair<float, float> WindowsInputHub::CursorPosition() {
@@ -25,5 +26,6 @@ namespace Proto{
 		std::pair<double, double> cursorPos;
 		glfwGetCursorPos(window, &std::get<0>(cursorPos), &std::get<0>(cursorPos));
 		return { (float)std::get<0>(cursorPos), (float)std::get<1>(cursorPos) };
+		//gives us the position of the cursor in the window
 	}
 }

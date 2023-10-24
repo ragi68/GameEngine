@@ -15,18 +15,19 @@ namespace Proto {
 	}
 
 	AbstractWin* AbstractWin::windowGenerator(const WindowSize& size) {
-		return new WindowsApplication(size);
+		return new WindowsApplication(size); //creates new window instance
 	}
 
 	WindowsApplication::WindowsApplication(const WindowSize& size) {
-		Init(size);
+		Init(size); //inits window instance
 	}
 
 	WindowsApplication::~WindowsApplication() {
-		Destroy();
+		Destroy(); //destrouctor
 	}
 
-	void WindowsApplication::Init(const WindowSize& size) {
+	void WindowsApplication::Init(const WindowSize& size) { //sets size of window and initializeses it to allow for
+															//errors/abort sequences to active - connecgts glfw to glad loader and sets it to singleton
 		windowData.Width = size.width;
 		windowData.Height = size.height;
 
@@ -46,7 +47,7 @@ namespace Proto {
 		VSync(true);
 
 		//set callbacks
-		glfwSetWindowSizeCallback(window, [](GLFWwindow* window, int width, int height){
+		glfwSetWindowSizeCallback(window, [](GLFWwindow* window, int width, int height){ //sers callback to window
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window); //sets a Data struct to have same reference (mem address) as the user window
 			windowData.Width = width; //this and next gets new window hight and length
 			windowData.Height = height;
@@ -55,13 +56,13 @@ namespace Proto {
 		});
 		//the lambda inside { []() } is of type GLFWwindowsizefun type (void)
 
-		glfwSetWindowCloseCallback(window, [](GLFWwindow* window){
+		glfwSetWindowCloseCallback(window, [](GLFWwindow* window){ //closes call back
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
 			CloseWindow e;
 			windowData.CallBack(e);
 		});
 
-		glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+		glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods) { //sets call back to key events like quitting, etc. 
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
 			switch (action) { //sees action(0, 1) and then sees cases. If the action is equal to the case, then is executes that case. 
 				case GLFW_PRESS:
@@ -105,7 +106,7 @@ namespace Proto {
 				}
 			}
 		});
-
+		 //every call back refers exactly to the fucntion name - mousecallback oto mouse action, cursor to cursor pos, and etc.
 		glfwSetScrollCallback(window, [](GLFWwindow* window, double x_offset, double y_offset) {
 			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
 			MouseScroll scroll((float)x_offset, (float)y_offset);

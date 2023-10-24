@@ -2,6 +2,7 @@
 #include "EntryCore.h"
 #include "EventSystem/EventHeader.h"
 #include "Window.h"
+#include "Layers/Imgui/IMGUI_Layer.h"
 #include "Proto/EventSystem/AppEvent.h"
 #include "Stackable.h"
 
@@ -31,6 +32,7 @@ namespace Proto {
 	private:
 		bool WindowClose(CloseWindow& event);
 		std::unique_ptr<AbstractWin> window;
+		IMGUI_Layer* imguiLayer; 
 		bool running = true;
 		Stackable layer_stack;
 		static Application* s_Instance;

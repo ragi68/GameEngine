@@ -11,13 +11,12 @@ namespace Proto {
 		IMGUI_Layer();
 		~IMGUI_Layer();
 
-		virtual void Update() override;
-		virtual void OnStack() override;
-		virtual void OnPop() override;
-		virtual void Render() override;
+		virtual void OnStack() override; //add to stack
+		virtual void OnPop() override; //pop from stack
+		virtual void Render() override; //show windows
 		
-		virtual void Init_Layer();
-		virtual void End_Layer(); 
+		virtual void Init_Layer(); //start creating frame
+		virtual void End_Layer(); //finish frame rendering. 
 
 		//bool OnCharQueue(); //have list of chars backed up and ready to type????
 	private:

@@ -23,10 +23,10 @@ namespace Proto{
 		void VSync(bool enabled) override;
 		bool VSyncEnabled() const override; //define in windowsapplication.cpp
 
-		inline void* GetWindowPointer() const { return window;  } //returns 
+		inline void* GetWindowPointer() const { return window;  } //returns ref to the window
 
 	private:
-		virtual void Init(const WindowSize& size);
+		virtual void Init(const WindowSize& size); //inits a window of some size
 		virtual void Destroy();
 
 	private:
