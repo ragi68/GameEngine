@@ -18,7 +18,7 @@ namespace Proto {
 		imguiLayer = new IMGUI_Layer(); 
 		PushLayer(imguiLayer); //pushes layer into the stack. 
 
-		//window->EventCallBack()
+();
 	}
 	void Application::Event(Events& e) {
 		EventDispatcher dispatcher(e); //create event dispatch object

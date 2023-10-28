@@ -50,5 +50,16 @@ namespace Proto {
 	protected:
 		int m_repeats;
 	};
+
+	class PROTO_API TypeEvent : public KeyStates {
+	public: 
+		TypeEvent(unsigned int keycode) : KeyStates(keycode) {}
+		std::string toString() const override {
+			std::stringstream ss;
+			return ss.str(); 
+		}
+
+		EVENT_TYPE(Type);
+	};
 }
 

@@ -8,7 +8,11 @@
 
 
 namespace Proto {
+#define windowPointer *(Data*)glfwGetWindowUserPointer(window); 
+
 	static bool windowInit = false;
+
+
 
 	void GLFWErrorFun(int errCode, const char* desc) {
 		PROTO_ERROR_MODULE("Error Code {0}. {1}", errCode, desc);
@@ -48,7 +52,7 @@ namespace Proto {
 
 		//set callbacks
 		glfwSetWindowSizeCallback(window, [](GLFWwindow* window, int width, int height){ //sers callback to window
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window); //sets a Data struct to have same reference (mem address) as the user window
+			Data& windowData = windowPointer; //sets a Data struct to have same reference (mem address) as the user window
 			windowData.Width = width; //this and next gets new window hight and length
 			windowData.Height = height;
 			WindowResize event(width, height); //creates windoeResize event
@@ -57,13 +61,13 @@ namespace Proto {
 		//the lambda inside { []() } is of type GLFWwindowsizefun type (void)
 
 		glfwSetWindowCloseCallback(window, [](GLFWwindow* window){ //closes call back
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
+			Data& windowData = windowPointer;
 			CloseWindow e;
 			windowData.CallBack(e);
 		});
 
 		glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods) { //sets call back to key events like quitting, etc. 
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
+			Data& windowData = windowPointer;
 			switch (action) { //sees action(0, 1) and then sees cases. If the action is equal to the case, then is executes that case. 
 				case GLFW_PRESS:
 				{
@@ -90,7 +94,7 @@ namespace Proto {
 		}); 
 
 		glfwSetMouseButtonCallback(window, [](GLFWwindow* window, int button, int action, int mods) {
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
+			Data& windowData = windowPointer;
 			switch (action) {
 				case GLFW_PRESS: {
 					MouseDown mousedown(mods);
@@ -108,17 +112,23 @@ namespace Proto {
 		});
 		 //every call back refers exactly to the fucntion name - mousecallback oto mouse action, cursor to cursor pos, and etc.
 		glfwSetScrollCallback(window, [](GLFWwindow* window, double x_offset, double y_offset) {
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window);
+			Data& windowData = windowPointer;
 			MouseScroll scroll((float)x_offset, (float)y_offset);
 			windowData.CallBack(scroll);
 
 		});
 
 		glfwSetCursorPosCallback(window, [](GLFWwindow* window, double x_pos, double y_pos) {
-			Data& windowData = *(Data*)glfwGetWindowUserPointer(window); //bro i need a macro for this shit
+			Data& windowData = windowPointer; //bro i need a macro for this shit -- done
 			MouseMoved moved((float)x_pos, (float)y_pos);
 			windowData.CallBack(moved);
 
+		});
+
+		glfwSetCharCallback(window, [](GLFWwindow* window, unsigned int keycode) { 
+			Data& windowData = windowPointer;
+			TypeEvent event(keycode); //inheritance error - protection to high??
+			windowData.CallBack(event);
 		});
 	}
 

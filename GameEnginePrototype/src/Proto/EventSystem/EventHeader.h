@@ -11,7 +11,7 @@ namespace Proto {
 		no = 0, 
 		CloseWindow, ResizeWindow, FocusWindow, NoFocusWindow, MoveWindow, 
 		Ticks, Update, Render, 
-		KeyPressed, ReleaseKey, 
+		KeyPressed, ReleaseKey, Type,
 		MouseDown, MouseUp, MouseMove, MouseScroll
 	}; 
 
