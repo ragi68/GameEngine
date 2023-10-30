@@ -1,6 +1,8 @@
 project "OpenGL"
 	kind "StaticLib"
 	language "C"
+	cppdialect "C++17"
+	staticruntime "On" 
 
 	targetdir("bin/" .. outputDirectory .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDirectory .. "/%{prj.name}")
@@ -16,11 +18,17 @@ project "OpenGL"
 	}
 
 	filter "system:windows" 
-		buildoptions{"-std=cll", "-ldgi32" }
 		systemversion "latest" 
-		staticruntime "On" 
+
 		
 		
 	
-	filter {"system:windows", "configurations:Release"}
-		buildoptions "/MT"
+	filter "configurations:Debug"
+		defines "DEBUG_APP"
+		runtime "Debug"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "RELEASE_PROTO"
+		runtime "Release"
+		optimize "On"

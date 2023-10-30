@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef PROTO_PLATFORM_WINDOWS
+#ifdef PROTO_DYNAMIC_LINK
 	#ifdef PROTO_BUILD_DLL
 		#define PROTO_API __declspec(dllexport)
 	#else
 		#define PROTO_API __declspec(dllimport)
 	#endif
+#else
+	#define PROTO_API
+#endif
 #else
 	#error Error
 #endif

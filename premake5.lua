@@ -19,8 +19,10 @@ include "GameEnginePrototype/externalLibs/ImGui"
 
 project "GameEnginePrototype"
 	location "GameEnginePrototype"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17" --sets c++ dialect
+	staticruntime "On" --sets runtimeLibrary to MultiThreaded and to allow DLL use how tf did this work
 
 	targetdir("bin/" .. outputDirectory .. "/%{prj.name}") --puts all targeted files into the given output directory
 	objdir("bin-int/" .. outputDirectory .. "/%{prj.name}") --sets path of all object/intermediate files
@@ -33,8 +35,10 @@ project "GameEnginePrototype"
 		"%{prj.name}/src/**.cpp", --takes all files with .cpp
 		"%{prj.name}/externalLibs/GLM/glm/**.hpp",
 		"%{prj.name}/externalLibs/GlM/glm/**.inl",
+	}
 
-
+	defines{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs{
@@ -56,8 +60,6 @@ project "GameEnginePrototype"
 
 	--only set for windows system (maybe mac/linux?)
 	filter "system:windows"
-		cppdialect "C++17" --sets c++ dialect
-		staticruntime "On" --sets runtimeLibrary to MultiThreaded and to allow DLL use
 		systemversion "latest" --sets SDK version to latest
 
 		defines{
@@ -72,17 +74,17 @@ project "GameEnginePrototype"
 	--filters to define macros for different configurations
 	filter "configurations:Debug"
 		defines "DEBUG_APP"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RELEASE_PROTO"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DISTRIBUTION_VERSION"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	--later multithread support??
@@ -91,6 +93,7 @@ project "Prototype"
 	location "Prototype"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "On" --sets runtimeLibrary to MultiThreaded and to allow DLL use again how tf did this fucking work it was static to dll why did this work
 
 	targetdir("bin/" .. outputDirectory .. "/%{prj.name}") --puts all targeted files into the given output directory
 	objdir("bin-int/" .. outputDirectory .. "/%{prj.name}") --sets path of all object/intermediate files
@@ -103,6 +106,7 @@ project "Prototype"
 	includedirs{
 		"GameEnginePrototype/externalLibs/spdlogging/include",
 		"GameEnginePrototype/src",
+		"GameEnginePrototype/externalLibs",
 		"%{prj.name}/externalLibs/GLM/glm"
 	}
 
@@ -113,8 +117,6 @@ project "Prototype"
 
 	--only set for windows system (maybe mac/linux?)
 	filter "system:windows"
-		cppdialect "C++17" --setes c++ dialect
-		staticruntime "On" --sets runtimeLibrary to MultiThreaded and to allow DLL use
 		systemversion "latest" --sets SDK version to latest
 
 		defines{
@@ -124,15 +126,15 @@ project "Prototype"
 	--filters to define macros for different configurations
 	filter "configurations:Debug"
 		defines "DEBUG_APP"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RELEASE_PROTO"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DISTRIBUTION_VERSION"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

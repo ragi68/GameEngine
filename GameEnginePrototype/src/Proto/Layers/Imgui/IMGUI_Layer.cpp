@@ -78,7 +78,7 @@ namespace Proto {
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetRef().GetWidth(), app.GetRef().GetHeight());
+		io.DisplaySize = ImVec2((float)app.GetRef().GetWidth(), (float)app.GetRef().GetHeight());
 
 		float time = (float)glfwGetTime();
 		io.DeltaTime = time > 0.0f ? (time - m_time) : (1.0f / 60.0f);
