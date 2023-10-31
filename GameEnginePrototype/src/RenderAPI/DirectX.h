@@ -1,12 +1,13 @@
 #pragma once
 #include "Proto/EntryCore.h"
 #include "PrecompiledHeaders.h"
+#include "rendercontext.h"
 
 namespace Proto {
-	class PROTO_API Direct3D {
+	class Direct3D : public rendercontext {
 	public:
-		//context
-		//swapchain
-		//init
+		virtual void Init() override;
+		virtual void SwapBuffer() override; 
+		virtual void SwapChain() = 0; 
 	};
 }

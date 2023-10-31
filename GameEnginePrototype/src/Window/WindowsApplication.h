@@ -1,6 +1,7 @@
 #pragma once
 #include "Proto/Window.h"
 #include <GLFW/glfw3.h> 
+#include "RenderAPI/rendercontext.h"
 namespace Proto{
 	class WindowsApplication : public AbstractWin
 	{
@@ -29,6 +30,7 @@ namespace Proto{
 		virtual void Init(const WindowSize& size); //inits a window of some size
 		virtual void Destroy();
 
+		
 	private:
 
 		GLFWwindow* window;
@@ -40,6 +42,8 @@ namespace Proto{
 
 
 		};
+
+		rendercontext* context; 
 
 		Data windowData;
 	};

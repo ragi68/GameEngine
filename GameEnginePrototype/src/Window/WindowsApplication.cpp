@@ -4,7 +4,7 @@
 #include "Proto/EventSystem/Keys.h"
 #include "Proto/EventSystem/MouseEvent.h"
 #include "Proto/EventSystem/AppEvent.h"
-#include "glad/glad.h"
+#include "OpenGLImplementation/openglcontext.h"
 
 
 namespace Proto {
@@ -44,9 +44,8 @@ namespace Proto {
 		}
 
 		window = glfwCreateWindow((int)size.width, (int)size.height, "Proto Engine", nullptr, nullptr); //create window with nullptr return
-		glfwMakeContextCurrent(window);                                                                                     //makes OpenGL context of window on current calling thread, meaing only one thread of executables every time a window is open. 
-		int loader = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		PROTO_CORE_LOG(status, "GLAD Init Failed.")
+		context = new openglcontext(window);
+		context->Init(); 
 		glfwSetWindowUserPointer(window, &windowData);
 		VSync(true);
 
@@ -155,7 +154,7 @@ namespace Proto {
 
 	void WindowsApplication::UpdateWindow() {
 		glfwPollEvents(); //-> processes events and returns result immediately. 
-		glfwSwapBuffers(window); //sets target of double-ended frame buffer to the window created 
+		context->SwapBuffer(); //sets target of double-ended frame buffer to the window created 
 		glClear(GL_COLOR_BUFFER_BIT); //sets frame buffer to clear previous window frame
 
 	}

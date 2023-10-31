@@ -1371,6 +1371,9 @@
     <ClInclude Include="src\Window\WindowsInputHub.h">
       <Filter>src\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
+    <ClInclude Include="src\RenderAPI\rendercontext.h" />
+    <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PrecompiledHeaders.cpp">
@@ -1406,5 +1409,8 @@
     <ClCompile Include="src\Window\WindowsInputHub.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
+    <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp" />
   </ItemGroup>
 </Project>
