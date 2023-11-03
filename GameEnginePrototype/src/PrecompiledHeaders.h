@@ -14,9 +14,9 @@
 #include <sstream>
 
 
-
 #ifdef PROTO_PLATFORM_WINDOWS
 #include <Windows.h>
+#include <Proto/EntryCore.h>
 #endif
 
 //add multi-platform support

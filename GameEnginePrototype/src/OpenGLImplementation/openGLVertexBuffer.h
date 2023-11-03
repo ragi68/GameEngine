@@ -3,11 +3,13 @@
 namespace Proto {
 	class openGLVertexBuffer : public VertexBufferAbstraction
 	{
-		openGLVertexBuffer(float* vertecies, uint32_t size);
+		openGLVertexBuffer(float* vertecies);
 		~openGLVertexBuffer();
 
 		virtual void Bind() override;
 		virtual void Unbind() override;
+
+		uint32_t program; 
 	};
 
 }
