@@ -1,26 +1,16 @@
-#include "RenderAbstraction.h"
 #include "PrecompiledHeaders.h"
-
+#include "RenderAbstraction.h"
 
 namespace Proto {
-//#define PROTO_WINDOWS() RenderAbstraction::API_Type RenderAbstraction::api = RenderAbstraction::API_Type::openGL; //switch name to PROTO_RENDER_WINDOWS
-//#define PROTO_WINDOWS_OPTIMIZED() RenderAbstraction::API_Type RenderAbstraction::api = RenderAbstraction::API_Type::direct3D;
-//#define PROTO_LINUX() RenderAbstraction::API_Type RenderAbstraction::api = RenderAbstraction::API_Type::vulkan;
-//#define PROTO_MACOS()  RenderAbstraction::API_Type RenderAbstraction::api = RenderAbstraction::API_Type::vulkan;
-//fix macros for future use
+#define PROTO_RENDER RenderAbstraction::API_Type RenderAbstraction::api 
+#define PROTO_RENDER_SET_API(type) PROTO_RENDER = RenderAbstraction::API_Type::type; 
+
+	PROTO_RENDER_SET_API(openGL); 
+
 
 	void RenderAbstraction::Init(uint32_t x, uint32_t y, uint32_t width, uint32_t height) {
-		return;
+		//set swapchain per render but check for common code - if none, just create more scripts for each one
 	}
 
-
-	//RenderAbstraction RenderAbstraction::CreateRenderer() {
-	//	switch (api) {
-	//	case RenderAbstraction::API_Type::none:           PROTO_ERROR_MODULE("NO rendering API detected"); return nullptr;
-	//	case RenderAbstraction::API_Type::openGL:         PROTO_INFO_MODULE("OpenGL initialized");
-
-
-	//	}
-	// }
 
 }

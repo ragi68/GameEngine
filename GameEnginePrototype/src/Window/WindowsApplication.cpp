@@ -155,7 +155,6 @@ namespace Proto {
 	void WindowsApplication::UpdateWindow() {
 		glfwPollEvents(); //-> processes events and returns result immediately. 
 		context->SwapBuffer(); //sets target of double-ended frame buffer to the window created 
-		glClear(GL_COLOR_BUFFER_BIT); //sets frame buffer to clear previous window frame
 
 	}
 

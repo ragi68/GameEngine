@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PROTO_WINDOW_ENABLED;_CRT_SECURE_NO_WARNINGS;PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DEBUG_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DEBUG_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -568,8 +568,9 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_angle.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_query.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl" />
+    <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
-    <ClInclude Include="src\RenderAPI\rendercontext.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
     <ClInclude Include="src\Proto\Entry.h" />
@@ -586,15 +587,17 @@
     <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
-    <ClInclude Include="src\RenderAPI\DirectX.h" />
     <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
-    <ClInclude Include="src\RenderAPI\Vulkan.h" />
+    <ClInclude Include="src\RenderAPI\ShaderAbstraction.h" />
+    <ClInclude Include="src\RenderAPI\rendercontext.h" />
     <ClInclude Include="src\Window\WindowsApplication.h" />
     <ClInclude Include="src\Window\WindowsInputHub.h" />
+    <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp" />
-    <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -604,11 +607,12 @@
     <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
-    <ClCompile Include="src\RenderAPI\DirectX.cpp" />
     <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
-    <ClCompile Include="src\RenderAPI\Vulkan.cpp" />
+    <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp" />
+    <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
     <ClCompile Include="src\Window\WindowsApplication.cpp" />
     <ClCompile Include="src\Window\WindowsInputHub.cpp" />
+    <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="externalLibs\glfw\glfw.vcxproj">

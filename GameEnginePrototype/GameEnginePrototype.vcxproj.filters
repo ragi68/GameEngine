@@ -43,6 +43,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\OpenGLImplementation">
+      <UniqueIdentifier>{87BCB3E2-73E1-0263-9C2C-E8F288B00181}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Proto">
       <UniqueIdentifier>{9021A4B3-FC8B-582A-45CA-09D0B173367F}</UniqueIdentifier>
     </Filter>
@@ -1311,6 +1314,9 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl">
       <Filter>externalLibs\GlM\glm\gtx</Filter>
     </ClInclude>
+    <ClInclude Include="src\OpenGLImplementation\openglcontext.h">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClInclude>
     <ClInclude Include="src\PrecompiledHeaders.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -1359,10 +1365,13 @@
     <ClInclude Include="src\ProtoHeader.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\DirectX.h">
+    <ClInclude Include="src\RenderAPI\RenderAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\Vulkan.h">
+    <ClInclude Include="src\RenderAPI\ShaderAbstraction.h">
+      <Filter>src\RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderAPI\rendercontext.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
     <ClInclude Include="src\Window\WindowsApplication.h">
@@ -1371,11 +1380,14 @@
     <ClInclude Include="src\Window\WindowsInputHub.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
-    <ClInclude Include="src\RenderAPI\rendercontext.h" />
-    <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
+    <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClCompile>
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1397,10 +1409,13 @@
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>src\Proto</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\DirectX.cpp">
+    <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\Vulkan.cpp">
+    <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp">
+      <Filter>src\RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderAPI\rendercontext.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
     <ClCompile Include="src\Window\WindowsApplication.cpp">
@@ -1409,8 +1424,8 @@
     <ClCompile Include="src\Window\WindowsInputHub.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
-    <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
-    <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />
+    <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 #include "Layers/Imgui/IMGUI_Layer.h"
 #include "Proto/EventSystem/AppEvent.h"
 #include "Stackable.h"
+#include "OpenGLImplementation/openGLShader.h"
 
 namespace Proto {
 	class PROTO_API Application
@@ -32,10 +33,13 @@ namespace Proto {
 	private:
 		bool WindowClose(CloseWindow& event);
 		std::unique_ptr<AbstractWin> window;
+		std::unique_ptr<openGLShader> shader;
 		IMGUI_Layer* imguiLayer; 
 		bool running = true;
 		Stackable layer_stack;
 		static Application* s_Instance;
+
+		unsigned int vertexArray, indexBuffer, vertexBuffer;
 	};
 
 
