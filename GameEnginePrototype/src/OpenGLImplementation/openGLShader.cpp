@@ -3,9 +3,13 @@
 #include "openGLShader.h"
 
 #include <glad/glad.h>
-#include "GLFW/glfw3.h">
+#include <GLFW/glfw3.h>
 //straight copy of khronos official documentation
 namespace Proto {
+
+
+
+
 	openGLShader::openGLShader(const std::string& vertex, const std::string& fragment) {
 		// Create an empty vertex shader handle
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);

@@ -568,8 +568,9 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_angle.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_query.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl" />
-    <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
@@ -587,16 +588,19 @@
     <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
+    <ClInclude Include="src\RenderAPI\BufferLayout.h" />
+    <ClInclude Include="src\RenderAPI\IndexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h" />
+    <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\rendercontext.h" />
     <ClInclude Include="src\Window\WindowsApplication.h" />
     <ClInclude Include="src\Window\WindowsInputHub.h" />
-    <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLIndexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp" />
     <ClCompile Include="src\PrecompiledHeaders.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -607,12 +611,14 @@
     <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
+    <ClCompile Include="src\RenderAPI\BufferLayout.cpp" />
+    <ClCompile Include="src\RenderAPI\IndexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp" />
+    <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
     <ClCompile Include="src\Window\WindowsApplication.cpp" />
     <ClCompile Include="src\Window\WindowsInputHub.cpp" />
-    <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="externalLibs\glfw\glfw.vcxproj">

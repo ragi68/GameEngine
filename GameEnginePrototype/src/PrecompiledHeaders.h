@@ -17,6 +17,7 @@
 #ifdef PROTO_PLATFORM_WINDOWS
 #include <Windows.h>
 #include <Proto/EntryCore.h>
+#include <Proto/logging.h>
 #endif
 
 //add multi-platform support

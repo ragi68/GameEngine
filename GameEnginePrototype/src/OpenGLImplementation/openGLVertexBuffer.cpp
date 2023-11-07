@@ -4,11 +4,14 @@
 #include "GLFW/glfw3.h"
 
 namespace Proto {
-	openGLVertexBuffer::openGLVertexBuffer(float* vertecies)
+
+	
+	
+	openGLVertexBuffer::openGLVertexBuffer(float* vertecies, uint32_t size)
 	{
-		glGenBuffers(1, &program);
+		glCreateBuffers(1, &program);
 		glBindBuffer(GL_ARRAY_BUFFER, program);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertecies), vertecies, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, size, vertecies, GL_STATIC_DRAW);
 	}
 
 	openGLVertexBuffer::~openGLVertexBuffer()

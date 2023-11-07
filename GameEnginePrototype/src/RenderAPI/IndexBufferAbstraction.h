@@ -3,11 +3,12 @@
 
 namespace Proto {
 	class IndexBufferAbstraction {
-		virtual void Create(unsigned int indices) = 0;
+	public:
+		static IndexBufferAbstraction* CreateIndexBuffer(uint32_t* indices, uint32_t size);
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0; 
 
-
+		uint32_t program;
 	};
 
 }
