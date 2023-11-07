@@ -57,12 +57,12 @@ namespace Proto {
 		/*idk y but the memory size needs to be passed in manually like bro what? - nvm i forgor sizeof only takes in the size of type, so it
 		can't eval the entire thing. */
 
-		BufferLayout buffers = {
+	/*	BufferLayout buffers = {
 			{"a_position", Shader::f3},
 			{"color", Shader::f4}
 		};
 
-		BufferLayout layout(buffers);
+		BufferLayout layout(buffers);*/
 
 		//uint32_t i = 0; 
 		//for (Buffers& a : layout) {
@@ -72,12 +72,13 @@ namespace Proto {
 		//		(const void*)a.offset);
 		//	//sets size of each vertex upon reading generic array 
 		//}
-		auto l = layout.GetBuffers();
+	/*	auto l = layout.GetBuffers();
 		for (int i = 0; i < l.size(); i++) {
 			glEnableVertexAttribArray(i);
 			glVertexAttribPointer(i, l[i].GetCount(l[i].shader), ShaderType(l[i].shader), l[i].normalized ? GL_TRUE : GL_FALSE, layout.stride, (const void*)l[i].offset);
-		}
-
+		}*/
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 		
 		
 
