@@ -2,7 +2,8 @@
 #include "Proto/EntryCore.h"
 #include "Proto/logging.h"
 //relevant lib includes
-#include "glm/glm.hpp"
+
+#include "VertexArrayAbstraction.h"
 
 
 namespace Proto {
@@ -10,6 +11,8 @@ namespace Proto {
 	enum class API_Type {
 		none = 0, openGL = 1, direct3D = 2, vulkan = 3
 	};
+
+
 	class RenderAbstraction {
 	public:
 		
@@ -18,8 +21,11 @@ namespace Proto {
 		virtual void Begin() = 0; //start renderer
 		virtual void End() = 0; //end renderer??? or finish setting up renderer
 
+		virtual void ClearWindow() = 0;
+		virtual void Draw(VertexArrayAbstraction& v_Array, uint32_t vertecies, float lineWidth) = 0; 
+
 		inline static API_Type GetAPIType() { return api; }
-		//static RenderAbstraction CreateRenderer(); 
+		static RenderAbstraction* CreateRenderer(); 
 	private:
 		static API_Type api;
 	};

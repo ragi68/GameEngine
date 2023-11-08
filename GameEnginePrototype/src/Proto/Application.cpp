@@ -7,27 +7,7 @@
 
 namespace Proto {
 
-	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app. 
-
-	static GLenum ShaderType(Shader shader) {
-		switch (shader) {
-		case Shader::Bool:	return GL_BOOL;
-		case Shader::m3:	return GL_FLOAT;
-		case Shader::m4:	return GL_FLOAT;
-		case Shader::f1:	return GL_FLOAT;
-		case Shader::f2:	return GL_FLOAT;
-		case Shader::f3:	return GL_FLOAT;
-		case Shader::f4:	return GL_FLOAT;
-		case Shader::i1:	return GL_INT;
-		case Shader::i2:	return GL_INT;
-		case Shader::i3:	return GL_INT;
-		case Shader::i4:	return GL_INT;
-		}
-
-		return 0;
-	}
-
-
+	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app.
 	Application::Application() {
 
 		PROTO_CORE_LOG(!s_Instance, "App is already open.");  //sets app to singleton as a whole, not just as a window but as in openings of the app
@@ -39,64 +19,54 @@ namespace Proto {
 
 		//basic render - triangle creation -> vertex array, vertex buffers, vertex shaders
 		//below code is copied code from official docs to create a simple triangle w/ glfw. 
-		glGenVertexArrays(1, &vertexArray);
-		glBindVertexArray(vertexArray);
+
+		renderer.reset(RenderAbstraction::CreateRenderer()); 
+
+		v_Array.reset(VertexArrayAbstraction::CreateVertexArray());
 
 		
 
-		float vertecies[3 * 3] = {
-			-0.5f, -0.5f, 0,
-			0.5f, -0.5f, 0,
-			0, 0.5f, 0.5f
+		float vertecies[3 * 7] = {
+			-0.5f, -0.5f, 0, 0.7f, 0.8f, 0.8f, 1,
+			0.5f, -0.5f, 0, 0, 1, 0.1f, 1,
+			0, 0.5f, 0.5f, 0, 0.2f, 1, 1,
 		};
 
-		/*glGenBuffers(1, &vertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertecies), vertecies, GL_STATIC_DRAW);*/
 		v_Buffer.reset(VertexBufferAbstraction::CreateVertexBuffer(vertecies, sizeof(vertecies)));
 		/*idk y but the memory size needs to be passed in manually like bro what? - nvm i forgor sizeof only takes in the size of type, so it
 		can't eval the entire thing. */
 
-	/*	BufferLayout buffers = {
+		BufferLayout buffers = {
 			{"a_position", Shader::f3},
-			{"color", Shader::f4}
+			{"a_color", Shader::f4}
 		};
 
-		BufferLayout layout(buffers);*/
+		BufferLayout layout(buffers);
+		v_Buffer->SetBufferLayout(layout);//needed to make sure the addvertexBuffer function works; else nothing happens
 
-		//uint32_t i = 0; 
-		//for (Buffers& a : layout) {
-		//	glEnableVertexAttribArray(i);
-		//	glVertexAttribPointer(i, a.GetCount(a.shader), ShaderType(a.shader),
-		//		a.normalized ? GL_TRUE : GL_FALSE, layout.stride,
-		//		(const void*)a.offset);
-		//	//sets size of each vertex upon reading generic array 
-		//}
-	/*	auto l = layout.GetBuffers();
-		for (int i = 0; i < l.size(); i++) {
-			glEnableVertexAttribArray(i);
-			glVertexAttribPointer(i, l[i].GetCount(l[i].shader), ShaderType(l[i].shader), l[i].normalized ? GL_TRUE : GL_FALSE, layout.stride, (const void*)l[i].offset);
-		}*/
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-		
+
+		v_Array->AddVertexBuffer(v_Buffer);
+
+
 		
 
 		unsigned int indicies[3] = { 0, 1 ,2 };
 
-		/*glGenBuffers(1, &indexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicies), indicies, GL_STATIC_DRAW);*/
 		i_Buffer.reset(IndexBufferAbstraction::CreateIndexBuffer(indicies, sizeof(indicies))); 
+		v_Array->AddIndexBuffer(i_Buffer);
 
 		std::string vectorShaders = R"(
 			#version 330 core
 			layout(location = 0) in vec3 a_position;
+			layout(location = 1) in vec4 a_color; 
 
 			out vec3 v_position; 
+			out vec4 v_color;
+
 
 			void main(){
 				v_position = a_position; 
+				v_color = a_color;
 				gl_Position = vec4(a_position, 1.0);
 			}
 		)";
@@ -106,13 +76,15 @@ namespace Proto {
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_position;
+			in vec4 v_color; 
 
 			void main(){
 				color = vec4(v_position + 0.5, 1.0); 
+				color = v_color;
 			}
 		)";
 
-		shader.reset(ShaderAbstraction::CreateShader(vectorShaders, fragmentShaders)); //not error
+		shader.reset(ShaderAbstraction::CreateShader(vectorShaders, fragmentShaders)); 
 	}
 	void Application::Event(Events& e) {
 		EventDispatcher dispatcher(e); //create event dispatch object
@@ -138,10 +110,10 @@ namespace Proto {
 
 		while (running) {
 
-			glClear(GL_COLOR_BUFFER_BIT);
+			renderer->ClearWindow();
 
 			shader->Bind();
-			glBindVertexArray(vertexArray);
+			v_Array->Bind();
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
 
