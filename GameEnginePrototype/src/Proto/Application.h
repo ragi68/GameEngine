@@ -37,7 +37,7 @@ namespace Proto {
 		std::shared_ptr<VertexBufferAbstraction> v_Buffer;
 		std::shared_ptr<IndexBufferAbstraction> i_Buffer;
 		std::shared_ptr<VertexArrayAbstraction> v_Array; 
-		std::unique_ptr<RenderAbstraction> renderer;
+		std::shared_ptr<RenderAbstraction> renderer;
 
 		IMGUI_Layer* imguiLayer; 
 		bool running = true;

@@ -3,7 +3,7 @@
 #include "GLFW/glfw3.h"
 #include "glad/glad.h"
 
-Proto::openGLIndexBuffer::openGLIndexBuffer(uint32_t* indices, uint32_t size)
+Proto::openGLIndexBuffer::openGLIndexBuffer(uint32_t* indices, uint32_t size) : size(size)
 {
 	glGenBuffers(1, &program);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, program);

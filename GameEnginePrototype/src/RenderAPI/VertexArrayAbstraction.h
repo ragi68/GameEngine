@@ -11,6 +11,8 @@ namespace Proto {
 
 		virtual void AddVertexBuffer(std::shared_ptr<VertexBufferAbstraction>& v_Buffer) = 0;
 		virtual void AddIndexBuffer(std::shared_ptr<IndexBufferAbstraction>& i_Buffer) = 0;
+		virtual std::shared_ptr<IndexBufferAbstraction>& GetIndexBuffer() = 0;
+
 
 		static VertexArrayAbstraction* CreateVertexArray(); 
 

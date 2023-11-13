@@ -83,7 +83,16 @@ namespace Proto {
 	{
 		glBindVertexArray(program);
 		i_Buffer->Bind(); 
+
+		indexBuffer = i_Buffer;
 	}
+
+	std::shared_ptr<IndexBufferAbstraction>& openGLVertexArray::GetIndexBuffer()
+	{
+		return indexBuffer; 
+	}
+
+
 
 
 }

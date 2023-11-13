@@ -8,6 +8,8 @@ namespace Proto {
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0; 
 
+		virtual uint32_t GetSize() = 0;
+
 		uint32_t program;
 	};
 

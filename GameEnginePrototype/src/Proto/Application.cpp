@@ -1,6 +1,6 @@
 #include "PrecompiledHeaders.h"
 #include "Application.h"
-#include <glad/glad.h>
+
 #include "Proto/EventSystem/AppEvent.h"
 #include "Proto/logging.h"
 
@@ -114,9 +114,8 @@ namespace Proto {
 
 			shader->Bind();
 			v_Array->Bind();
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
-
+			renderer->DrawAndEnd(v_Array, 3.4f);
 
 			for (LayerClass* layer : layer_stack)
 				layer->Update();
