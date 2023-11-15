@@ -5,7 +5,7 @@
 namespace Proto {
 	void openGLRenderer::DrawAndEnd(std::shared_ptr<VertexArrayAbstraction>& v_Array, float lineWidth)
 	{
-		glLineWidth(lineWidth);
+		//glLineWidth(lineWidth);
 		glDrawElements(GL_TRIANGLES, v_Array->GetIndexBuffer()->GetSize(), GL_UNSIGNED_INT, nullptr);
 		
 	}
