@@ -1,7 +1,7 @@
 
 #include "PrecompiledHeaders.h"
 #include "openGLShader.h"
-
+#include "glm/gtc/type_ptr.hpp"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 //straight copy of khronos official documentation
@@ -125,6 +125,11 @@ namespace Proto {
 
 	void openGLShader::Unbind() {
 		glUseProgram(0);
+	}
+	void openGLShader::BindMatrixData(std::string name,  glm::mat4& matrix)
+	{
+		GLuint shader = glGetUniformLocation(program, name.c_str());
+		glUniformMatrix4fv(shader,1 , GL_FALSE, glm::value_ptr(matrix));
 	}
 }
 

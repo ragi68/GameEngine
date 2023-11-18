@@ -5,10 +5,11 @@
 #include "Proto/logging.h"
 
 
+
 namespace Proto {
 
 	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app.
-	Application::Application() {
+	Application::Application() : camera(45.0f, (float)(16 / 9), -1.0f, 1.0f) {
 
 		PROTO_CORE_LOG(!s_Instance, "App is already open.");  //sets app to singleton as a whole, not just as a window but as in openings of the app
 		s_Instance = this;									  //creates a unique pointer to window to solidfy if on server side and also a solid imGui layer on server side since we don't want it it to be controlled by the engine, but by us made manually as an essential service. 
@@ -60,6 +61,8 @@ namespace Proto {
 			layout(location = 0) in vec3 a_position;
 			layout(location = 1) in vec4 a_color; 
 
+			uniform mat4 v_matrix; 
+
 			out vec3 v_position; 
 			out vec4 v_color;
 
@@ -67,7 +70,7 @@ namespace Proto {
 			void main(){
 				v_position = a_position; 
 				v_color = a_color;
-				gl_Position = vec4(a_position, 1.0);
+				gl_Position = v_matrix * vec4(a_position, 1.0);
 			}
 		)";
 
@@ -114,6 +117,8 @@ namespace Proto {
 
 			shader->Bind();
 			v_Array->Bind();
+
+			shader->BindMatrixData("v_matrix", camera.GetVPMatrix());
 
 			renderer->DrawAndEnd(v_Array, 3.4f);
 

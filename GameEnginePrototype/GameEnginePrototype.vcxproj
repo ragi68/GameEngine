@@ -568,6 +568,7 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_angle.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\vector_query.inl" />
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl" />
+    <ClInclude Include="src\CameraScripts\Cameras.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
@@ -602,6 +603,7 @@
     <ClInclude Include="src\Window\WindowsInputHub.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CameraScripts\Cameras.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLIndexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLRenderer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />

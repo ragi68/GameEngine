@@ -5,6 +5,7 @@
 #include "EventSystem/EventHeader.h"
 #include "Layers/Imgui/IMGUI_Layer.h"
 #include "Proto/EventSystem/AppEvent.h"
+#include "CameraScripts/Cameras.h"
 #include "RendererHeaders.h"
 
 namespace Proto {
@@ -38,6 +39,8 @@ namespace Proto {
 		std::shared_ptr<IndexBufferAbstraction> i_Buffer;
 		std::shared_ptr<VertexArrayAbstraction> v_Array; 
 		std::shared_ptr<RenderAbstraction> renderer;
+
+		Camera3D camera;
 
 		IMGUI_Layer* imguiLayer; 
 		bool running = true;

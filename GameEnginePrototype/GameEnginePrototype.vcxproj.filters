@@ -43,6 +43,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\CameraScripts">
+      <UniqueIdentifier>{4DE5A1DF-B9FB-9F75-0273-2B976EC870FD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\OpenGLImplementation">
       <UniqueIdentifier>{87BCB3E2-73E1-0263-9C2C-E8F288B00181}</UniqueIdentifier>
     </Filter>
@@ -1314,10 +1317,19 @@
     <ClInclude Include="externalLibs\GlM\glm\gtx\wrap.inl">
       <Filter>externalLibs\GlM\glm\gtx</Filter>
     </ClInclude>
+    <ClInclude Include="src\CameraScripts\Cameras.h">
+      <Filter>src\CameraScripts</Filter>
+    </ClInclude>
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
+    <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClInclude>
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGLImplementation\openGLVertexArray.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
     <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h">
@@ -1362,6 +1374,9 @@
     <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h">
       <Filter>src\Proto\Layers\Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\RendererHeaders.h">
+      <Filter>src\Proto</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\Stackable.h">
       <Filter>src\Proto</Filter>
     </ClInclude>
@@ -1374,6 +1389,9 @@
     <ClInclude Include="src\ProtoHeader.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderAPI\BufferLayout.h">
+      <Filter>src\RenderAPI</Filter>
+    </ClInclude>
     <ClInclude Include="src\RenderAPI\IndexBufferAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
@@ -1381,6 +1399,9 @@
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h">
+      <Filter>src\RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderAPI\VertexArrayAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h">
@@ -1395,17 +1416,21 @@
     <ClInclude Include="src\Window\WindowsInputHub.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\BufferLayout.h" />
-    <ClInclude Include="src\RenderAPI\VertexArrayAbstraction.h" />
-    <ClInclude Include="src\OpenGLImplementation\openGLVertexArray.h" />
-    <ClInclude Include="src\Proto\RendererHeaders.h" />
-    <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CameraScripts\Cameras.cpp">
+      <Filter>src\CameraScripts</Filter>
+    </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLIndexBuffer.cpp">
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
+    <ClCompile Include="src\OpenGLImplementation\openGLRenderer.cpp">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGLImplementation\openGLVertexArray.cpp">
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp">
@@ -1435,6 +1460,9 @@
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>src\Proto</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderAPI\BufferLayout.cpp">
+      <Filter>src\RenderAPI</Filter>
+    </ClCompile>
     <ClCompile Include="src\RenderAPI\IndexBufferAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
@@ -1442,6 +1470,9 @@
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp">
+      <Filter>src\RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp">
@@ -1456,9 +1487,5 @@
     <ClCompile Include="src\Window\WindowsInputHub.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\BufferLayout.cpp" />
-    <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp" />
-    <ClCompile Include="src\OpenGLImplementation\openGLVertexArray.cpp" />
-    <ClCompile Include="src\OpenGLImplementation\openGLRenderer.cpp" />
   </ItemGroup>
 </Project>
