@@ -1,6 +1,6 @@
 #pragma once
 
-#include "glm/glm.hpp"
+#include "C:\Prototypes\GameEngineProto\GameEnginePrototype\externalLibs\GLM\glm\glm.hpp"
 
 namespace Proto {
 	class Camera3D {
@@ -24,10 +24,10 @@ namespace Proto {
 
 		void ReCalculateVPMatrix();
 
-		void PanLeft();
+		/*void PanLeft();
 		void PanRight();
 		void PanDown();
-		void PanUp();
+		void PanUp();*/
 
 
 	private:

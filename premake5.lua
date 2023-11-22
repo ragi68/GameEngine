@@ -17,6 +17,7 @@ include "GameEnginePrototype/externalLibs/ImGui"
 
 
 
+
 project "GameEnginePrototype"
 	location "GameEnginePrototype"
 	kind "StaticLib"
@@ -34,7 +35,7 @@ project "GameEnginePrototype"
 		"%{prj.name}/src/**.h", --takes all files in src with .h 
 		"%{prj.name}/src/**.cpp", --takes all files with .cpp
 		"%{prj.name}/externalLibs/GLM/glm/**.hpp",
-		"%{prj.name}/externalLibs/GlM/glm/**.inl",
+		"%{prj.name}/externalLibs/GLM/glm/**.inl",
 	}
 
 	defines{

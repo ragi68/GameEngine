@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "glm/glm.hpp"
+#include "C:\Prototypes\GameEngineProto\GameEnginePrototype\externalLibs\GLM\glm\glm.hpp"
 
 
 namespace Proto {

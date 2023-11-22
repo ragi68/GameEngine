@@ -5,7 +5,7 @@
 #include "EventSystem/EventHeader.h"
 #include "Layers/Imgui/IMGUI_Layer.h"
 #include "Proto/EventSystem/AppEvent.h"
-#include "CameraScripts/Cameras.h"
+#include "Camera/Cameras.h"
 #include "RendererHeaders.h"
 
 namespace Proto {

@@ -1,6 +1,6 @@
 #include "PrecompiledHeaders.h"
 #include "Application.h"
-
+#include "glm/gtx/string_cast.hpp"
 #include "Proto/EventSystem/AppEvent.h"
 #include "Proto/logging.h"
 
@@ -9,8 +9,8 @@
 namespace Proto {
 
 	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app.
-	Application::Application() : camera(45.0f, (float)(16 / 9), -1.0f, 1.0f) {
-
+	Application::Application() : camera(glm::radians(60.0f), 16.0f/9.0f, 100.0f, 0.1f) {
+		std::cout << glm::to_string(camera.GetVPMatrix());
 		PROTO_CORE_LOG(!s_Instance, "App is already open.");  //sets app to singleton as a whole, not just as a window but as in openings of the app
 		s_Instance = this;									  //creates a unique pointer to window to solidfy if on server side and also a solid imGui layer on server side since we don't want it it to be controlled by the engine, but by us made manually as an essential service. 
 		window = std::unique_ptr<AbstractWin>(AbstractWin::windowGenerator());
@@ -28,8 +28,8 @@ namespace Proto {
 		
 
 		float vertecies[3 * 7] = {
-			-0.5f, -0.5f, 0, 0.7f, 0.8f, 0.8f, 1,
-			0.5f, -0.5f, 0, 0, 1, 0.1f, 1,
+			-0.5f, -0.5, 0, 0.7f, 0.8f, 0.8f, 1,
+			0.5f, -0.5, 0, 0, 1, 0.1f, 1,
 			0, 0.5f, 0.5f, 0, 0.2f, 1, 1,
 		};
 
@@ -70,9 +70,9 @@ namespace Proto {
 			void main(){
 				v_position = a_position; 
 				v_color = a_color;
-				gl_Position = v_matrix * vec4(a_position, 1.0);
+				gl_Position = v_matrix * vec4(a_position, 1); 
 			}
-		)";
+		)"; //4th coordinate in glPosition is the 'scale'. The lower the value, the more zoomed in the iamge will be. 
 
 		std::string fragmentShaders = R"(
 			#version 330 core
@@ -117,8 +117,8 @@ namespace Proto {
 
 			shader->Bind();
 			v_Array->Bind();
-
-			shader->BindMatrixData("v_matrix", camera.GetVPMatrix());
+			
+			shader->BindMatrixData("v_matrix", camera.GetVPMatrix()); //camera.GetVPMatrix(); 
 
 			renderer->DrawAndEnd(v_Array, 3.4f);
 
