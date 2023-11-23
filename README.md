@@ -15,4 +15,4 @@ Will be working on a Math Lib that is SIMD - 😢
 GOAL: The entire point of this engine isn't to be the best or fastest. That is up to unity or unreal or something more commercial. My goal is to make this as customizable is possible as much as I can. This includes custom scripting with languages of choice, various render APIs, a custom physics engine(built-in or PhysX or something like that), and custom AI choices.
 
 
-![Screenshot (4)](https://github.com/ragi68/GameEngine/assets/62191560/8df8485c-7d0f-4411-945d-0549fc139143)
+At the current point in time, there is a pseudo-camera system in place using glm::perspective. This is rather makeshift and I will work on making it a bit more interactive to post here. 
