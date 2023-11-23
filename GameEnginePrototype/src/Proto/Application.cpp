@@ -9,7 +9,7 @@
 namespace Proto {
 
 	Application* Application::s_Instance = nullptr; //makes sure app is not a singleton-dependent -- makes sure there is only one instance of the window/app.
-	Application::Application() : camera(glm::radians(60.0f), 16.0f/9.0f, 100.0f, 0.1f) {
+	Application::Application() : camera(glm::radians(90.0f), 16.0f / 9.0f, 0.1f, 100.0f) { //-1.0f, 1.0f, -1.0f, 1.0f ; glm::radians(60.0f), 16.0f/9.0f, 100.0f, 0.1f
 		std::cout << glm::to_string(camera.GetVPMatrix());
 		PROTO_CORE_LOG(!s_Instance, "App is already open.");  //sets app to singleton as a whole, not just as a window but as in openings of the app
 		s_Instance = this;									  //creates a unique pointer to window to solidfy if on server side and also a solid imGui layer on server side since we don't want it it to be controlled by the engine, but by us made manually as an essential service. 
@@ -22,15 +22,15 @@ namespace Proto {
 		//below code is copied code from official docs to create a simple triangle w/ glfw. 
 
 		renderer.reset(RenderAbstraction::CreateRenderer()); 
-
+		
 		v_Array.reset(VertexArrayAbstraction::CreateVertexArray());
 
 		
 
 		float vertecies[3 * 7] = {
-			-0.5f, -0.5, 0, 0.7f, 0.8f, 0.8f, 1,
-			0.5f, -0.5, 0, 0, 1, 0.1f, 1,
-			0, 0.5f, 0.5f, 0, 0.2f, 1, 1,
+			-0.5f, -0.5, -10, 0.7f, 0.8f, 0.8f, 1,
+			0.5f, -0.5, -1, 0, 1, 0.1f, 1,
+			0, 0.5f, -0.5f, 0, 0.2f, 1, 1,
 		};
 
 		v_Buffer.reset(VertexBufferAbstraction::CreateVertexBuffer(vertecies, sizeof(vertecies)));

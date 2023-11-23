@@ -11,6 +11,8 @@ namespace Proto {
 		v_Matrix = glm::mat4(1.0f);
 
 		vp_Matrix = p_Matrix * v_Matrix;
+
+	
 	}
 
 	void Camera3D::SetPosition(glm::vec3 position)
