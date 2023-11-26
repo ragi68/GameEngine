@@ -1344,10 +1344,7 @@
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
       <Filter>src\Proto\EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\Proto\InputHub.h">
-      <Filter>src\Proto</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Proto\Keys.h">
+    <ClInclude Include="src\Proto\KeyCodes.h">
       <Filter>src\Proto</Filter>
     </ClInclude>
     <ClInclude Include="src\Proto\LayerClass.h">
@@ -1395,9 +1392,7 @@
     <ClInclude Include="src\Window\WindowsApplication.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Window\WindowsInputHub.h">
-      <Filter>src\Window</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Proto\InputModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera\Cameras.cpp">
@@ -1466,8 +1461,6 @@
     <ClCompile Include="src\Window\WindowsApplication.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\WindowsInputHub.cpp">
-      <Filter>src\Window</Filter>
-    </ClCompile>
+    <ClCompile Include="src\Window\Input.cpp" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ class FirstLayer : public Proto::LayerClass {
 public:
 	FirstLayer(): LayerClass("layer 1"){}
 	void Update() override {
-
+	
 	}
 
 	void OnEvent(Proto::Events& e) override{
@@ -13,8 +13,9 @@ public:
 			Proto::KeyPressed& e2 = (Proto::KeyPressed&)e;
 			PROTO_INFO_MODULE((char)e2.GetKeyCode()); 
 		}
-	}
 
+	}
+	
 
 };
 

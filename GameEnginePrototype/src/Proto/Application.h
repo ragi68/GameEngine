@@ -8,6 +8,10 @@
 #include "Camera/Cameras.h"
 #include "RendererHeaders.h"
 
+#include "InputModule.h"
+#include "KeyCodes.h"
+
+
 namespace Proto {
 	class PROTO_API Application
 	{
@@ -39,6 +43,7 @@ namespace Proto {
 		std::shared_ptr<IndexBufferAbstraction> i_Buffer;
 		std::shared_ptr<VertexArrayAbstraction> v_Array; 
 		std::shared_ptr<RenderAbstraction> renderer;
+		std::unique_ptr<InputModule> input;
 
 		Camera3D camera;
 

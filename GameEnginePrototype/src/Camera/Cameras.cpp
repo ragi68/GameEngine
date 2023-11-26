@@ -37,8 +37,8 @@ namespace Proto {
 	void Camera3D::ReCalculateVPMatrix()
 	{
 		glm::mat4 t_Matrix = glm::translate(glm::mat4(1), init_pos) * glm::rotate(glm::mat4(1), init_rot[0], glm::vec3(0, 0, 1));
-		/*t_Matrix = t_Matrix * glm::rotate(glm::mat4(1), init_rot[1], glm::vec3(0, 1, 0));
-		t_Matrix = t_Matrix * glm::rotate(glm::mat4(1), init_rot[2], glm::vec3(1, 0, 0));*/
+		t_Matrix = t_Matrix * glm::rotate(glm::mat4(1), init_rot[1], glm::vec3(0, 1, 0));
+		t_Matrix = t_Matrix * glm::rotate(glm::mat4(1), init_rot[2], glm::vec3(1, 0, 0));
 
 		v_Matrix = glm::inverse(t_Matrix);
 		vp_Matrix = p_Matrix * v_Matrix;

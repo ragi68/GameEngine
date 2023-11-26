@@ -569,6 +569,7 @@
     <ClInclude Include="externalLibs\GLM\glm\vec4.hpp" />
     <ClInclude Include="externalLibs\GLM\glm\vector_relational.hpp" />
     <ClInclude Include="src\Camera\Cameras.h" />
+    <ClInclude Include="src\Proto\InputModule.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
@@ -583,8 +584,7 @@
     <ClInclude Include="src\Proto\EventSystem\EventHeader.h" />
     <ClInclude Include="src\Proto\EventSystem\Keys.h" />
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h" />
-    <ClInclude Include="src\Proto\InputHub.h" />
-    <ClInclude Include="src\Proto\Keys.h" />
+    <ClInclude Include="src\Proto\KeyCodes.h" />
     <ClInclude Include="src\Proto\LayerClass.h" />
     <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h" />
     <ClInclude Include="src\Proto\RendererHeaders.h" />
@@ -600,7 +600,6 @@
     <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\rendercontext.h" />
     <ClInclude Include="src\Window\WindowsApplication.h" />
-    <ClInclude Include="src\Window\WindowsInputHub.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera\Cameras.cpp" />
@@ -626,8 +625,8 @@
     <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
+    <ClCompile Include="src\Window\Input.cpp" />
     <ClCompile Include="src\Window\WindowsApplication.cpp" />
-    <ClCompile Include="src\Window\WindowsInputHub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="externalLibs\glfw\glfw.vcxproj">
