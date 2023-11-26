@@ -16,3 +16,5 @@ GOAL: The entire point of this engine isn't to be the best or fastest. That is u
 
 
 At the current point in time, there is a pseudo-camera system in place using glm::perspective. This is rather makeshift and I will work on making it a bit more interactive to post here. 
+
+https://www.youtube.com/watch?v=3i7z2MI6Npg&list=PLri1_ogVec6Xvi8F6lb20kgSL4AA3kIDD&index=5&t=3s&ab_channel=RaghavIyer - LINK TO WORKING CAMERA DEMONSTRATION
