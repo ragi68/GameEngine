@@ -1393,6 +1393,7 @@
       <Filter>src\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\Proto\InputModule.h" />
+    <ClInclude Include="src\Proto\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera\Cameras.cpp">
@@ -1462,5 +1463,6 @@
       <Filter>src\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\Window\Input.cpp" />
+    <ClCompile Include="src\Proto\Time.cpp" />
   </ItemGroup>
 </Project>

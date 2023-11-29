@@ -589,6 +589,7 @@
     <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h" />
     <ClInclude Include="src\Proto\RendererHeaders.h" />
     <ClInclude Include="src\Proto\Stackable.h" />
+    <ClInclude Include="src\Proto\Time.h" />
     <ClInclude Include="src\Proto\Window.h" />
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
@@ -618,6 +619,7 @@
     <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
+    <ClCompile Include="src\Proto\Time.cpp" />
     <ClCompile Include="src\RenderAPI\BufferLayout.cpp" />
     <ClCompile Include="src\RenderAPI\IndexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />

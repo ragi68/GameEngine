@@ -38,14 +38,14 @@ namespace Proto {
 	private:
 		bool WindowClose(CloseWindow& event);
 		std::shared_ptr<AbstractWin> window;
-		std::shared_ptr<ShaderAbstraction> shader;
+		/*std::shared_ptr<ShaderAbstraction> shader;
 		std::shared_ptr<VertexBufferAbstraction> v_Buffer;
 		std::shared_ptr<IndexBufferAbstraction> i_Buffer;
 		std::shared_ptr<VertexArrayAbstraction> v_Array; 
 		std::shared_ptr<RenderAbstraction> renderer;
 		std::unique_ptr<InputModule> input;
 
-		Camera3D camera;
+		Camera3D camera;*/
 
 		IMGUI_Layer* imguiLayer; 
 		bool running = true;
