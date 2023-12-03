@@ -1,0 +1,9 @@
+TRANSFORMS
+
+
+glm::vec3(position) -> glm::vec4(position, 0) + glPosition(verts) OR glm::transform(transofmrvector * vec3(1.0f), verts(?))
+glm::scale(verts, glm::vec3(scale_vector))
+
+rota
+
+MATERIALS
