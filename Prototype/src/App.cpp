@@ -1,6 +1,7 @@
 #include "ProtoHeader.h"
 
 
+
 class FirstLayer : public Proto::LayerClass {
 public:
 	FirstLayer(): camera(glm::radians(90.0f), 16.0f / 9.0f, 0.0001f, 100.0f) {
@@ -9,7 +10,7 @@ public:
 
 		v_Array.reset(Proto::VertexArrayAbstraction::CreateVertexArray());
 
-
+		
 
 		float vertecies[4 * 7] = { //remember that the z-axis is flipped for our camera. also keep auto camera nera plane value as close to zero as possible. 
 			-2.0f, -2.0f, -1.0f, 0.6f, 0.23f, 0.19f, 1,
@@ -48,6 +49,7 @@ public:
 			layout(location = 1) in vec4 a_color; 
 
 			uniform mat4 v_matrix; 
+			uniform mat4 transform;
 
 			out vec3 v_position; 
 			out vec4 v_color;
@@ -56,7 +58,7 @@ public:
 			void main(){
 				v_position = a_position; 
 				v_color = a_color;
-				gl_Position = v_matrix * vec4(a_position, 1); 
+				gl_Position = v_matrix * transform * vec4(a_position, 1); 
 			}
 		)"; //4th coordinate in glPosition is the 'scale'. The lower the value, the more zoomed in the iamge will be. 
 
@@ -74,50 +76,63 @@ public:
 		)";
 
 		shader.reset(Proto::ShaderAbstraction::CreateShader(vectorShaders, fragmentShaders));
+		 //transform w/ glm::translate??? and glm::scale
+	
+		 
 	}
 	void Update() override {
 		renderer->ClearWindow();
 
-		if (input->checkPressed(KEY_Q)) {
-			position.z += 0.2f;
+		Proto::Time t = t.getFrameTime();
+		float ts = t.getTime() - pastTime;
+		pastTime = t.getTime();
+
+
+		if (input->checkPressed(KEY_KP_SUBTRACT)) {
+			position.z += 10.0f * ts;
 		}
-		else if (input->checkPressed(KEY_E)) {
-			position.z -= 0.2f;
+		else if (input->checkPressed(KEY_KP_ADD)) {
+			position.z -= 10.0f * ts;
 		}
 
 		if (input->checkPressed(KEY_W)) {
-			position.y += 0.2f;
+			position.y += 10.0f * ts;
 		}
 		else if (input->checkPressed(KEY_S)) {
-			position.y -= 0.2f;
+			position.y -= 10.0f * ts;
 		}
 
 		if (input->checkPressed(KEY_D)) {
-			position.x += 0.2f;
+			position.x += 10.0f * ts;
 		}
 		else if (input->checkPressed(KEY_A)) {
-			position.x -= 0.2f;
+			position.x -= 10.0f * ts;
 		}
 
 		if (input->checkPressed(KEY_LEFT)) {
-			rotation.y += 0.1f;
+			rotation.y += 1.0f * ts;
 		}
 		else if (input->checkPressed(KEY_RIGHT)) {
-			rotation.y -= 0.1f;
+			rotation.y -= 1.0f * ts;
 		}
 
 		if (input->checkPressed(KEY_UP)) {
-			rotation.z += 0.1f;
+			rotation.z += 1.0f * ts;
 		}
 		else if (input->checkPressed(KEY_DOWN)) {
-			rotation.z -= 0.1f;
+			rotation.z -= 1.0f * ts;
 		}
 
-		if (input->checkPressed(KEY_Z)) {
-			rotation.x += 0.1f;
+		if (input->checkPressed(KEY_PAGE_UP)) {
+			rotation.x += 1.0f * ts;
 		}
-		else if (input->checkPressed(KEY_X)) {
-			rotation.x -= 0.1f;
+		else if (input->checkPressed(KEY_PAGE_DOWN)) {
+			rotation.x -= 1.0f * ts;
+		}
+
+
+		if (input->checkPressed(KEY_I)) {
+			objectPos.y += 1.0f * ts;
 		}
 
 
@@ -127,9 +142,14 @@ public:
 		shader->Bind();
 		v_Array->Bind();
 
-		shader->BindMatrixData("v_matrix", camera.GetVPMatrix()); //camera.GetVPMatrix(); 
+		shader->BindMatrixData("v_matrix", camera.GetVPMatrix());
 
-		renderer->DrawAndEnd(v_Array, 3.4f);
+		glm::mat4 tf = glm::translate(glm::mat4(1.0f), objectPos);
+
+		renderer->DrawAndEnd(v_Array, tf, shader); 
+
+
+
 	}
 
 	void OnEvent(Proto::Events& e) override{
@@ -147,10 +167,18 @@ private:
 	std::shared_ptr<Proto::RenderAbstraction> renderer;
 	std::unique_ptr<Proto::InputModule> input;
 
+	
+
 	Proto::Camera3D camera;
+
 
 	glm::vec3 position = { 0.0f, 0.0f, 10.0f };
 	glm::vec3 rotation = { 0.0f, 0.0f, 0.0f };
+	float pastTime = 0.0f;
+	float frameTime = 0.0f;
+
+	glm::vec3 objectPos = { 1.0f, 1.0f, 1.0f };
+
 
 	
 

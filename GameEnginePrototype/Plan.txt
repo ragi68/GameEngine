@@ -7,3 +7,6 @@ glm::scale(verts, glm::vec3(scale_vector))
 rota
 
 MATERIALS
+-> loop thru multiple
+
+Read STL Files for STL support -> find the algorithm for it and make it as its own script in filemanagement folder

@@ -5,11 +5,7 @@
 #include "EventSystem/EventHeader.h"
 #include "Layers/Imgui/IMGUI_Layer.h"
 #include "Proto/EventSystem/AppEvent.h"
-#include "Camera/Cameras.h"
-#include "RendererHeaders.h"
-
-#include "InputModule.h"
-#include "KeyCodes.h"
+#include "Time.h"
 
 
 namespace Proto {
@@ -38,19 +34,14 @@ namespace Proto {
 	private:
 		bool WindowClose(CloseWindow& event);
 		std::shared_ptr<AbstractWin> window;
-		/*std::shared_ptr<ShaderAbstraction> shader;
-		std::shared_ptr<VertexBufferAbstraction> v_Buffer;
-		std::shared_ptr<IndexBufferAbstraction> i_Buffer;
-		std::shared_ptr<VertexArrayAbstraction> v_Array; 
-		std::shared_ptr<RenderAbstraction> renderer;
-		std::unique_ptr<InputModule> input;
-
-		Camera3D camera;*/
-
+		Time time; 
 		IMGUI_Layer* imguiLayer; 
 		bool running = true;
 		Stackable layer_stack;
 		static Application* s_Instance;
+
+		float frameTime = 0;
+		float inTime = 0; 
 
 	};
 

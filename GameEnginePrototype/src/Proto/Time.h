@@ -3,7 +3,12 @@
 namespace Proto {
 	class Time {
 	public: 
+		Time(float time) : time(time){ }
+		Time() = default; 
 		float getFrameTime();
-		void CalculateFrameTime(float framerate, float frametime);
+
+		float getTime() {return time;}
+
+		float time; 
 	};
 }

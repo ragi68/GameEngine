@@ -47,7 +47,7 @@ namespace Proto {
 		context = new openglcontext(window);
 		context->Init(); 
 		glfwSetWindowUserPointer(window, &windowData);
-		VSync(true);
+		VSync(false);
 
 		//set callbacks
 		glfwSetWindowSizeCallback(window, [](GLFWwindow* window, int width, int height){ //sers callback to window

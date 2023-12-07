@@ -7,9 +7,6 @@ namespace Proto {
 		return (float)glfwGetTime();
 	}
 
-	void Time::CalculateFrameTime(float pastTime, float frameTime){
-		float time = getFrameTime();
-		frameTime = time - pastTime;
-		pastTime = time; 
-	}
+	
 }
+

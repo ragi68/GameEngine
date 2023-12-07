@@ -19,8 +19,8 @@
 #define PROTO_CORE_LOG(x, ...){if (!x){PROTO_CRITICAL_MODULE("Setup failure: {0}", __VA_ARGS__); __debugbreak();}}
 
 #else
-#define PROTO_LOG(x, ...)
-#define PROTO_CORE_LOG(x, ...)
+#define PROTO_LOG(x, ...){ if(!x){ PROTO_ERROR_MODULE("Setup failure:{0}", __VA_ARGS__); __debugbreak();}} //sets log to give error and stops code for debugging. 
+#define PROTO_CORE_LOG(x, ...){if (!x){PROTO_INFO_MODULE("Setup failure: {0}", __VA_ARGS__); __debugbreak();}}
 #endif
 
 #define BIT(a) (1 << a)

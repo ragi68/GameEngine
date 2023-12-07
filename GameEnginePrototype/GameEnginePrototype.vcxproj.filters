@@ -1465,4 +1465,7 @@
     <ClCompile Include="src\Window\Input.cpp" />
     <ClCompile Include="src\Proto\Time.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Plan.txt" />
+  </ItemGroup>
 </Project>
