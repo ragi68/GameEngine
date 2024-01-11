@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DEBUG_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;externalLibs\CLMG;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -101,7 +101,7 @@
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;RELEASE_PROTO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;externalLibs\CLMG;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -129,7 +129,7 @@
       <PrecompiledHeaderFile>PrecompiledHeaders.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PROTO_PLATFORM_WINDOWS;PROTO_BUILD_DLL;GLFW_INCLUDE_NONE;DISTRIBUTION_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;externalLibs\spdlogging\include;externalLibs\glfw\include;externalLibs\opengl\include;externalLibs\ImGui;externalLibs\GLM;externalLibs\CLMG;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="externalLibs\CLMG\CLMG.h" />
     <ClInclude Include="externalLibs\GLM\glm\common.hpp" />
     <ClInclude Include="externalLibs\GLM\glm\detail\_features.hpp" />
     <ClInclude Include="externalLibs\GLM\glm\detail\_fixes.hpp" />
@@ -569,12 +570,12 @@
     <ClInclude Include="externalLibs\GLM\glm\vec4.hpp" />
     <ClInclude Include="externalLibs\GLM\glm\vector_relational.hpp" />
     <ClInclude Include="src\Camera\Cameras.h" />
-    <ClInclude Include="src\Proto\InputModule.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLVertexArray.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGlTexture.h" />
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />
@@ -584,6 +585,7 @@
     <ClInclude Include="src\Proto\EventSystem\EventHeader.h" />
     <ClInclude Include="src\Proto\EventSystem\Keys.h" />
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h" />
+    <ClInclude Include="src\Proto\InputModule.h" />
     <ClInclude Include="src\Proto\KeyCodes.h" />
     <ClInclude Include="src\Proto\LayerClass.h" />
     <ClInclude Include="src\Proto\Layers\Imgui\IMGUI_Layer.h" />
@@ -597,16 +599,19 @@
     <ClInclude Include="src\RenderAPI\IndexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h" />
+    <ClInclude Include="src\RenderAPI\TextureAbstraction.h" />
     <ClInclude Include="src\RenderAPI\VertexArrayAbstraction.h" />
     <ClInclude Include="src\RenderAPI\VertexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\rendercontext.h" />
     <ClInclude Include="src\Window\WindowsApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="externalLibs\CLMG\CLMG.cpp" />
     <ClCompile Include="src\Camera\Cameras.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLIndexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLRenderer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLTexture.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLVertexArray.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLVertexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openglcontext.cpp" />
@@ -618,12 +623,13 @@
     <ClCompile Include="src\Proto\Layers\Imgui\IMGUI_Layer.cpp" />
     <ClCompile Include="src\Proto\Layers\Imgui\ImGuiFiles.cpp" />
     <ClCompile Include="src\Proto\Stackable.cpp" />
-    <ClCompile Include="src\Proto\logging.cpp" />
     <ClCompile Include="src\Proto\Time.cpp" />
+    <ClCompile Include="src\Proto\logging.cpp" />
     <ClCompile Include="src\RenderAPI\BufferLayout.cpp" />
     <ClCompile Include="src\RenderAPI\IndexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp" />
+    <ClCompile Include="src\RenderAPI\TextureAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\VertexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\rendercontext.cpp" />
@@ -642,7 +648,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Plan.txt" />
+    <None Include="..\..\..\Users\ragha\Downloads\Cat.avif" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

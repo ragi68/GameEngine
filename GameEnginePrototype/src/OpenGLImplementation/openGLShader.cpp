@@ -131,6 +131,11 @@ namespace Proto {
 		GLuint shader = glGetUniformLocation(program, name.c_str());
 		glUniformMatrix4fv(shader,1 , GL_FALSE, glm::value_ptr(matrix));
 	}
+
+	void openGLShader::BindFloat3Data(std::string name, glm::vec3& vector) {
+		GLuint shader = glGetUniformLocation(program, name.c_str());
+		glUniform3fv(shader, 1, glm::value_ptr(vector)); 
+	}
 }
 
 

@@ -5,6 +5,7 @@
 
 #include "VertexArrayAbstraction.h"
 #include "RenderAPI/ShaderAbstraction.h"
+#include "Camera/Cameras.h"
 
 
 namespace Proto {
@@ -23,7 +24,7 @@ namespace Proto {
 
 
 		virtual void ClearWindow() = 0;
-		virtual void DrawAndEnd(std::shared_ptr<VertexArrayAbstraction>& v_Array, glm::mat4& transform, std::shared_ptr<ShaderAbstraction> shader) = 0; //const glm::mat_4 glm::mat4(1.0f);
+		virtual void DrawAndEnd(std::shared_ptr<VertexArrayAbstraction>& v_Array, glm::mat4& transform, std::shared_ptr<ShaderAbstraction> shader, Camera3D camera) = 0; //const glm::mat_4 glm::mat4(1.0f);
 
 		inline static API_Type GetAPIType() { return api; }
 		static RenderAbstraction* CreateRenderer(); 

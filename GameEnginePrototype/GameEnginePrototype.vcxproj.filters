@@ -4,6 +4,9 @@
     <Filter Include="externalLibs">
       <UniqueIdentifier>{B205E728-9E68-76CD-47EE-AE8333304250}</UniqueIdentifier>
     </Filter>
+    <Filter Include="externalLibs\CLMG">
+      <UniqueIdentifier>{84EFC01D-F005-BFB3-397D-4AD5A5D28F3B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="externalLibs\GLM">
       <UniqueIdentifier>{A18C91AB-8D85-B0FD-B6B7-9582A20F9009}</UniqueIdentifier>
     </Filter>
@@ -51,6 +54,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="externalLibs\CLMG\CLMG.h">
+      <Filter>externalLibs\CLMG</Filter>
+    </ClInclude>
     <ClInclude Include="externalLibs\GLM\glm\common.hpp">
       <Filter>externalLibs\GLM\glm</Filter>
     </ClInclude>
@@ -1317,6 +1323,9 @@
     <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
+    <ClInclude Include="src\OpenGLImplementation\openGlTexture.h">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClInclude>
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
@@ -1344,6 +1353,9 @@
     <ClInclude Include="src\Proto\EventSystem\MouseEvent.h">
       <Filter>src\Proto\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\Proto\InputModule.h">
+      <Filter>src\Proto</Filter>
+    </ClInclude>
     <ClInclude Include="src\Proto\KeyCodes.h">
       <Filter>src\Proto</Filter>
     </ClInclude>
@@ -1357,6 +1369,9 @@
       <Filter>src\Proto</Filter>
     </ClInclude>
     <ClInclude Include="src\Proto\Stackable.h">
+      <Filter>src\Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Proto\Time.h">
       <Filter>src\Proto</Filter>
     </ClInclude>
     <ClInclude Include="src\Proto\Window.h">
@@ -1380,6 +1395,9 @@
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderAPI\TextureAbstraction.h">
+      <Filter>src\RenderAPI</Filter>
+    </ClInclude>
     <ClInclude Include="src\RenderAPI\VertexArrayAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
@@ -1392,10 +1410,11 @@
     <ClInclude Include="src\Window\WindowsApplication.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Proto\InputModule.h" />
-    <ClInclude Include="src\Proto\Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="externalLibs\CLMG\CLMG.cpp">
+      <Filter>externalLibs\CLMG</Filter>
+    </ClCompile>
     <ClCompile Include="src\Camera\Cameras.cpp">
       <Filter>src\Camera</Filter>
     </ClCompile>
@@ -1406,6 +1425,9 @@
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp">
+      <Filter>src\OpenGLImplementation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGLImplementation\openGLTexture.cpp">
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLVertexArray.cpp">
@@ -1435,6 +1457,9 @@
     <ClCompile Include="src\Proto\Stackable.cpp">
       <Filter>src\Proto</Filter>
     </ClCompile>
+    <ClCompile Include="src\Proto\Time.cpp">
+      <Filter>src\Proto</Filter>
+    </ClCompile>
     <ClCompile Include="src\Proto\logging.cpp">
       <Filter>src\Proto</Filter>
     </ClCompile>
@@ -1450,6 +1475,9 @@
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderAPI\TextureAbstraction.cpp">
+      <Filter>src\RenderAPI</Filter>
+    </ClCompile>
     <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
@@ -1459,13 +1487,14 @@
     <ClCompile Include="src\RenderAPI\rendercontext.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
+    <ClCompile Include="src\Window\Input.cpp">
+      <Filter>src\Window</Filter>
+    </ClCompile>
     <ClCompile Include="src\Window\WindowsApplication.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window\Input.cpp" />
-    <ClCompile Include="src\Proto\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Plan.txt" />
+    <None Include="..\..\..\Users\ragha\Downloads\Cat.avif" />
   </ItemGroup>
 </Project>

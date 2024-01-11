@@ -63,8 +63,7 @@ namespace Proto {
 
 	void IMGUI_Layer::Render()
 	{
-		bool showDemoWindow = true;
-		ImGui::ShowDemoWindow(&showDemoWindow);
+
 	}
 	 //mistake adding update funct. in this file; unpdate function conflicted with separate layer control functions and caused abort sequence to activate
 	void IMGUI_Layer::Init_Layer() //tells app to start new layer - more controlled by lyaer than whole application

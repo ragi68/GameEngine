@@ -9,6 +9,7 @@ IncludeDir["glfw"] = "GameEnginePrototype/externalLibs/glfw/include"
 IncludeDir["opengl"] = "GameEnginePrototype/externalLibs/opengl/include"
 IncludeDir["imgui"] = "GameEnginePrototype/externalLibs/ImGui"
 IncludeDir["GLM"] = "GameEnginePrototype/externalLibs/GLM"
+IncludeDir["CLMG"] = "GameEnginePrototype/externalLibs/CLMG"
 
 
 include "GameEnginePrototype/externalLibs/glfw"
@@ -34,6 +35,8 @@ project "GameEnginePrototype"
 	files{
 		"%{prj.name}/src/**.h", --takes all files in src with .h 
 		"%{prj.name}/src/**.cpp", --takes all files with .cpp
+		"%{prj.name}/externalLibs/CLMG/**.cpp", --takes clmg files
+		"%{prj.name}/externalLibs/CLMG/**.h", --takes clmg files
 		"%{prj.name}/externalLibs/GLM/glm/**.hpp",
 		"%{prj.name}/externalLibs/GLM/glm/**.inl",
 	}
@@ -48,7 +51,8 @@ project "GameEnginePrototype"
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.opengl}",
 		"%{IncludeDir.imgui}",
-		"%{IncludeDir.GLM}"
+		"%{IncludeDir.GLM}",
+		"%{IncludeDir.CLMG}"
 	}
 
 	links{
