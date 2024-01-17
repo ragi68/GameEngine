@@ -12,6 +12,10 @@ namespace Proto {
 		
 	}
 
+	void openGlTexture3D::BindTexture(uint32_t spot)
+	{
+	}
+
 	openGlTexture2D::openGlTexture2D(std::string& filePath) : filePath(filePath) {
 		CImg<unsigned char> image("TestCat.avif");
 		height = image.height();

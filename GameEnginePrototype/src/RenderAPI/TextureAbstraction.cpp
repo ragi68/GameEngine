@@ -15,7 +15,7 @@ namespace Proto {
 	Texture2D* Texture2D::CreateTexture(std::string& filePath) {
 		switch (RenderAbstraction::GetAPIType()) {
 			case API_Type::none:	return nullptr;
-			case API_Type::openGL:  return openGlTexture2D(filePath);
+			case API_Type::openGL:  return new openGlTexture2D(filePath); //fix this inheritance conversion issue
 		}
 
 		return nullptr;

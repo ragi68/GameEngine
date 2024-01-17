@@ -35,7 +35,7 @@ namespace Proto {
 
 
 		Buffers(std::string name, Shader shader) : name(name), shader(shader), offset(0), normalized(false), size(GetShaderSize(shader)) {
-
+			//cant handle multi-value????
 		}
 
 		uint32_t GetSize(Shader shader) { return GetShaderSize(shader); }
@@ -58,10 +58,10 @@ namespace Proto {
 			return 0;
 		}
 	};
-	class BufferLayout {
+	class BufferLayout { //shoudld've commented when I made this -_-
 	public:
 		
-		BufferLayout(){}
+		BufferLayout(){} 
 
 		BufferLayout(std::initializer_list<Buffers> bufferList) : bufferList(bufferList) { //initializer list uses stack alloc - better memory optimization for faster applications  - is auto-caste to std::vector
 			CalculateStrideAndOffset();

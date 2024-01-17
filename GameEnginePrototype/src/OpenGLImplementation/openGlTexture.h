@@ -12,7 +12,7 @@ namespace Proto {
 		virtual uint32_t GetHeight() override { return height; }
 		virtual uint32_t GetDepth() override { return depth; }
 
-		virtual void BindTexture() override;
+		virtual void BindTexture(uint32_t spot) override;
 
 	private:
 		std::string filePath;

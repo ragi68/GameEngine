@@ -54,7 +54,13 @@ namespace Proto {
 		for (Buffers& a : l) {
 			switch (a.shader) {
 				case Shader::f1: return;
-				case Shader::f2: return;
+				case Shader::f2: {
+					glEnableVertexAttribArray(index);
+					glVertexAttribPointer(index, l[index].GetCount(l[index].shader), ShaderType(l[index].shader), l[index].normalized ? GL_TRUE : GL_FALSE, layout.stride, (const void*)l[index].offset);
+					index++;
+
+					break;
+				}
 				case Shader::f3: {
 					glEnableVertexAttribArray(index);
 					glVertexAttribPointer(index, l[index].GetCount(l[index].shader), ShaderType(l[index].shader), l[index].normalized ? GL_TRUE : GL_FALSE, layout.stride, (const void*)l[index].offset);
@@ -69,6 +75,13 @@ namespace Proto {
 
 					break;
 				}
+				case Shader::i1:	return;
+				case Shader::i2:	return;
+				case Shader::i3:	return;
+				case Shader::i4:	return;
+				case Shader::m3:	return;
+				case Shader::m4:	return;
+				case Shader::Bool:  return;
 
 
 
