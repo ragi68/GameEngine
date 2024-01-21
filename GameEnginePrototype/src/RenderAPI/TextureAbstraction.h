@@ -22,6 +22,6 @@ namespace Proto {
 	class Texture2D : public Texture {
 	public:
 		Texture2D() = default;
-		static Texture2D* CreateTexture(std::string & filePath);
+		static std::shared_ptr<Texture2D> CreateTexture(const std::string& filePath);
 	};
 }

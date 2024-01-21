@@ -25,6 +25,9 @@
     <Filter Include="externalLibs\GLM\glm\gtx">
       <UniqueIdentifier>{D2422259-BE67-71D9-E7B2-5669D33670F7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="externalLibs\stb_image">
+      <UniqueIdentifier>{CCFC61BC-B8F6-8A0E-A163-211F8DFCF07A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
@@ -1305,6 +1308,9 @@
     <ClInclude Include="externalLibs\GLM\glm\vector_relational.hpp">
       <Filter>externalLibs\GLM\glm</Filter>
     </ClInclude>
+    <ClInclude Include="externalLibs\stb_image\stb_image.h">
+      <Filter>externalLibs\stb_image</Filter>
+    </ClInclude>
     <ClInclude Include="src\Camera\Cameras.h">
       <Filter>src\Camera</Filter>
     </ClInclude>
@@ -1414,6 +1420,9 @@
   <ItemGroup>
     <ClCompile Include="externalLibs\CLMG\CLMG.cpp">
       <Filter>externalLibs\CLMG</Filter>
+    </ClCompile>
+    <ClCompile Include="externalLibs\stb_image\stb_image.cpp">
+      <Filter>externalLibs\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera\Cameras.cpp">
       <Filter>src\Camera</Filter>

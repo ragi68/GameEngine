@@ -6,7 +6,7 @@
 namespace Proto {
 	class openGlTexture3D : public Texture3D {
 	public:
-		openGlTexture3D(std::string& filePath);
+		openGlTexture3D(const std::string& filePath);
 
 		virtual uint32_t GetWidth() override { return width; }
 		virtual uint32_t GetHeight() override { return height; }
@@ -16,13 +16,13 @@ namespace Proto {
 
 	private:
 		std::string filePath;
-		uint32_t width, height, depth;
+		int width, height, depth, channel;
 		uint32_t programID; 
 	};
 
 	class openGlTexture2D : public Texture2D {
 	public:
-		openGlTexture2D(std::string& filePath);
+		openGlTexture2D(const std::string& filePath);
 		~openGlTexture2D(); 
 		virtual uint32_t GetWidth() override { return width; }
 		virtual uint32_t GetHeight() override { return height; }
@@ -31,7 +31,7 @@ namespace Proto {
 
 	private:
 		std::string filePath;
-		uint32_t width, height;
+		int width, height, channel;
 		uint32_t programID; 
 
 		

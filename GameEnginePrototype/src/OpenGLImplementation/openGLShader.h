@@ -13,6 +13,7 @@ namespace Proto {
 
 		virtual void BindMatrixData(std::string name, glm::mat4& matrix) override;
 		virtual void BindFloat3Data(std::string name, glm::vec3& vector) override; 
+		virtual void BindIntData(std::string name, int a) override;
 
 	public:
 		unsigned int program; //program ID - noticed that GLUint was used for program ID, so I replaced it with a a direct 

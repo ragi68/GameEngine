@@ -5,6 +5,8 @@
 
 namespace Proto {
 
+
+
 	static GLenum ShaderType(Shader shader) {
 		switch (shader) {
 		case Shader::Bool:	return GL_BOOL;
@@ -48,7 +50,7 @@ namespace Proto {
 		glBindVertexArray(program);
 		v_Buffer->Bind();
 
-		BufferLayout& layout = v_Buffer->GetLayout(); 
+		BufferLayout& layout = v_Buffer->GetLayout();  //takes buffers, iterates through all given buffers in initializer list, and then enables them in openGL so they can be used in glsl. 
 		auto l = layout.GetBuffers(); 
 		uint8_t index = 0; 
 		for (Buffers& a : l) {

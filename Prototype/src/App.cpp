@@ -143,13 +143,19 @@ public:
 			
 			in vec2 v_color;
 
+			uniform sampler2D test_texture;
+
 			void main(){
-				color = vec4(v_color, 0.0, 1.0);
+				color = texture(test_texture, v_color);
 			}
 		)";
-		//vec 3 works vec 4 works so just vec2 isnt working????
+		//vec 3 works vec 4 works so just vec2 isnt working???? -> fixed
 		shader_texture.reset(Proto::ShaderAbstraction::CreateShader(textureVectors, textureFragment));
 
+		texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg");
+
+		//shader_texture->Bind();
+		//shader_texture->BindIntData("test_texture", 0);
 	}
 
 	virtual void Render() override
@@ -173,13 +179,14 @@ public:
 		camera.SetPosition(position);
 		camera.SetRotation(rotation);
 
-		//shader_flat->Bind();
-		//shader_flat->BindFloat3Data("flat_color", flatColor);
+		shader_flat->Bind();
+		shader_flat->BindFloat3Data("flat_color", flatColor);
 
 
 		glm::mat4 tf = glm::translate(glm::mat4(1.0f), objectPos);
 		renderer->DrawAndEnd(v_Array, tf, shader, camera);
-	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_texture, camera);
+		//texture2D->BindTexture(0);
+	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_flat, camera);
 	}
 
 	void OnEvent(Proto::Events& e) override {
@@ -189,15 +196,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<Proto::ShaderAbstraction> shader;
-	std::shared_ptr<Proto::VertexBufferAbstraction> v_Buffer;
-	std::shared_ptr<Proto::IndexBufferAbstraction> i_Buffer;
-	std::shared_ptr<Proto::VertexArrayAbstraction> v_Array;
-
-	std::shared_ptr<Proto::ShaderAbstraction> shader_flat, shader_texture;
-	std::shared_ptr<Proto::VertexArrayAbstraction> v_array_flat;
-	std::shared_ptr<Proto::VertexBufferAbstraction> v_buffer_flat;
-	std::shared_ptr<Proto::IndexBufferAbstraction> i_buffer_flat;
+	std::shared_ptr<Proto::ShaderAbstraction> shader, shader_flat, shader_texture;
+	std::shared_ptr<Proto::VertexBufferAbstraction> v_Buffer, v_buffer_flat;
+	std::shared_ptr<Proto::IndexBufferAbstraction> i_Buffer, i_buffer_flat;
+	std::shared_ptr<Proto::VertexArrayAbstraction> v_Array, v_array_flat;
+	std::shared_ptr<Proto::Texture2D> texture2D;
 
 	std::shared_ptr<Proto::RenderAbstraction> renderer;
 	std::unique_ptr<Proto::InputModule> input;

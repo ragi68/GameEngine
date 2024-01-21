@@ -5,6 +5,7 @@
 #include "RenderAPI/IndexBufferAbstraction.h"
 #include "RenderAPI/VertexArrayAbstraction.h"
 #include "Camera/Cameras.h"
+#include "RenderAPI/TextureAbstraction.h"
 
 
 #include "C:\Prototypes\GameEngineProto\GameEnginePrototype\externalLibs\GLM\glm\ext\matrix_transform.hpp"

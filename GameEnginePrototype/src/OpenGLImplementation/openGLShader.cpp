@@ -136,6 +136,11 @@ namespace Proto {
 		GLuint shader = glGetUniformLocation(program, name.c_str());
 		glUniform3fv(shader, 1, glm::value_ptr(vector)); 
 	}
+
+	void openGLShader::BindIntData(std::string name, int a) {
+		GLuint shader = glGetUniformLocation(program, name.c_str());
+		glUniform1i(shader, a);
+	}
 }
 
 
