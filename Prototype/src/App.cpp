@@ -149,14 +149,28 @@ public:
 				color = texture(test_texture, v_color);
 			}
 		)";
-		//vec 3 works vec 4 works so just vec2 isnt working???? -> fixed
+
+
+
 		shader_texture.reset(Proto::ShaderAbstraction::CreateShader(textureVectors, textureFragment));
 
-		texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg");
+		texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg"); 
 
-		//shader_texture->Bind();
-		//shader_texture->BindIntData("test_texture", 0);
+		std::cout<< texture2D->GetWidth();
+
+		shader_texture->Bind();
+
+		shader_texture->BindIntData("test_texture", 0);
+
+		//err.reset(Proto::Error::SeeError());
+
+		//err->GetErrors(); 
+		//no general compiler errors
+
+		//shader->GetLog();
+		//shader_texture->GetLog();
 	}
+
 
 	virtual void Render() override
 	{
@@ -185,8 +199,8 @@ public:
 
 		glm::mat4 tf = glm::translate(glm::mat4(1.0f), objectPos);
 		renderer->DrawAndEnd(v_Array, tf, shader, camera);
-		//texture2D->BindTexture(0);
-	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_flat, camera);
+		//texture2D->BindTexture(0); //not binding properly???
+	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_texture, camera);
 	}
 
 	void OnEvent(Proto::Events& e) override {
@@ -204,6 +218,8 @@ private:
 
 	std::shared_ptr<Proto::RenderAbstraction> renderer;
 	std::unique_ptr<Proto::InputModule> input;
+
+	std::unique_ptr<Proto::Error> err;
 
 
 

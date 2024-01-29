@@ -17,7 +17,11 @@ namespace Proto {
 	}
 
 	openGlTexture2D::openGlTexture2D(const std::string& filePath) : filePath(filePath) {
-		stbi_uc* image = stbi_load(filePath.c_str(), &width, &height, &channel, 0);
+		int w, h, c;
+		stbi_uc* image = stbi_load(filePath.c_str(), &w, &h, &c, 0);
+		width = w;
+		height = h;
+	
 
 		glCreateTextures(GL_TEXTURE_2D, 1, &programID);
 		glTextureStorage2D(programID, 1, GL_RGB8, width, height);
@@ -25,8 +29,10 @@ namespace Proto {
 		glTextureParameteri(programID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTextureParameteri(programID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glTextureSubImage2D(programID, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);
+		
 
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);
 		stbi_image_free(image);
 	}
 

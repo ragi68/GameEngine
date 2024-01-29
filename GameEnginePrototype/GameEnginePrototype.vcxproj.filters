@@ -1416,6 +1416,11 @@
     <ClInclude Include="src\Window\WindowsApplication.h">
       <Filter>src\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\FileManagement\3DModels\3DFileReader.h" />
+    <ClInclude Include="src\RenderAPI\GetError.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLGetErrors.h" />
+    <ClInclude Include="src\RenderAPI\FrameBufferAbstraction.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLFrameBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="externalLibs\CLMG\CLMG.cpp">
@@ -1502,5 +1507,10 @@
     <ClCompile Include="src\Window\WindowsApplication.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\FileManagement\3DModels\3DFileReader.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLGetErrors.cpp" />
+    <ClCompile Include="src\RenderAPI\GetError.cpp" />
+    <ClCompile Include="src\RenderAPI\FrameBufferAbstraction.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLFrameBuffer.cpp" />
   </ItemGroup>
 </Project>

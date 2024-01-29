@@ -571,6 +571,9 @@
     <ClInclude Include="externalLibs\GLM\glm\vector_relational.hpp" />
     <ClInclude Include="externalLibs\stb_image\stb_image.h" />
     <ClInclude Include="src\Camera\Cameras.h" />
+    <ClInclude Include="src\FileManagement\3DModels\3DFileReader.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLFrameBuffer.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLGetErrors.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
@@ -597,6 +600,8 @@
     <ClInclude Include="src\Proto\logging.h" />
     <ClInclude Include="src\ProtoHeader.h" />
     <ClInclude Include="src\RenderAPI\BufferLayout.h" />
+    <ClInclude Include="src\RenderAPI\FrameBufferAbstraction.h" />
+    <ClInclude Include="src\RenderAPI\GetError.h" />
     <ClInclude Include="src\RenderAPI\IndexBufferAbstraction.h" />
     <ClInclude Include="src\RenderAPI\RenderAbstraction.h" />
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h" />
@@ -610,6 +615,9 @@
     <ClCompile Include="externalLibs\CLMG\CLMG.cpp" />
     <ClCompile Include="externalLibs\stb_image\stb_image.cpp" />
     <ClCompile Include="src\Camera\Cameras.cpp" />
+    <ClCompile Include="src\FileManagement\3DModels\3DFileReader.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLFrameBuffer.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLGetErrors.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLIndexBuffer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLRenderer.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp" />
@@ -628,6 +636,8 @@
     <ClCompile Include="src\Proto\Time.cpp" />
     <ClCompile Include="src\Proto\logging.cpp" />
     <ClCompile Include="src\RenderAPI\BufferLayout.cpp" />
+    <ClCompile Include="src\RenderAPI\FrameBufferAbstraction.cpp" />
+    <ClCompile Include="src\RenderAPI\GetError.cpp" />
     <ClCompile Include="src\RenderAPI\IndexBufferAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\RenderAbstraction.cpp" />
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp" />
