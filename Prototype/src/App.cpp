@@ -154,21 +154,18 @@ public:
 
 		shader_texture.reset(Proto::ShaderAbstraction::CreateShader(textureVectors, textureFragment));
 
-		texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg"); 
-
-		std::cout<< texture2D->GetWidth();
+		//texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg"); abstract texture2D -> texture and make it a separate function
+		texture2D.reset(Proto::Texture2D::Create2DTexture("TestAssets/Cat2.jpg"));
 
 		shader_texture->Bind();
-
 		shader_texture->BindIntData("test_texture", 0);
 
-		//err.reset(Proto::Error::SeeError());
+		std::cout << texture2D->GetHeight();
 
-		//err->GetErrors(); 
-		//no general compiler errors
+		std::cout << "\n";
 
-		//shader->GetLog();
-		//shader_texture->GetLog();
+		std::cout << texture2D->GetWidth();
+		
 	}
 
 
@@ -198,9 +195,13 @@ public:
 
 
 		glm::mat4 tf = glm::translate(glm::mat4(1.0f), objectPos);
+
+		texture2D->Bind(0);
 		renderer->DrawAndEnd(v_Array, tf, shader, camera);
-		//texture2D->BindTexture(0); //not binding properly???
+
 	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_texture, camera);
+
+		
 	}
 
 	void OnEvent(Proto::Events& e) override {
@@ -215,6 +216,7 @@ private:
 	std::shared_ptr<Proto::IndexBufferAbstraction> i_Buffer, i_buffer_flat;
 	std::shared_ptr<Proto::VertexArrayAbstraction> v_Array, v_array_flat;
 	std::shared_ptr<Proto::Texture2D> texture2D;
+
 
 	std::shared_ptr<Proto::RenderAbstraction> renderer;
 	std::unique_ptr<Proto::InputModule> input;

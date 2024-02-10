@@ -1329,9 +1329,6 @@
     <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGLImplementation\openGlTexture.h">
-      <Filter>src\OpenGLImplementation</Filter>
-    </ClInclude>
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h">
       <Filter>src\OpenGLImplementation</Filter>
     </ClInclude>
@@ -1401,9 +1398,6 @@
     <ClInclude Include="src\RenderAPI\ShaderAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderAPI\TextureAbstraction.h">
-      <Filter>src\RenderAPI</Filter>
-    </ClInclude>
     <ClInclude Include="src\RenderAPI\VertexArrayAbstraction.h">
       <Filter>src\RenderAPI</Filter>
     </ClInclude>
@@ -1421,6 +1415,8 @@
     <ClInclude Include="src\OpenGLImplementation\openGLGetErrors.h" />
     <ClInclude Include="src\RenderAPI\FrameBufferAbstraction.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLFrameBuffer.h" />
+    <ClInclude Include="src\RenderAPI\TextureAbstraction.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="externalLibs\CLMG\CLMG.cpp">
@@ -1439,9 +1435,6 @@
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLShader.cpp">
-      <Filter>src\OpenGLImplementation</Filter>
-    </ClCompile>
-    <ClCompile Include="src\OpenGLImplementation\openGLTexture.cpp">
       <Filter>src\OpenGLImplementation</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenGLImplementation\openGLVertexArray.cpp">
@@ -1489,9 +1482,6 @@
     <ClCompile Include="src\RenderAPI\ShaderAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderAPI\TextureAbstraction.cpp">
-      <Filter>src\RenderAPI</Filter>
-    </ClCompile>
     <ClCompile Include="src\RenderAPI\VertexArrayAbstraction.cpp">
       <Filter>src\RenderAPI</Filter>
     </ClCompile>
@@ -1512,5 +1502,7 @@
     <ClCompile Include="src\RenderAPI\GetError.cpp" />
     <ClCompile Include="src\RenderAPI\FrameBufferAbstraction.cpp" />
     <ClCompile Include="src\OpenGLImplementation\openGLFrameBuffer.cpp" />
+    <ClCompile Include="src\OpenGLImplementation\openGLTexture.cpp" />
+    <ClCompile Include="src\RenderAPI\TextureAbstraction.cpp" />
   </ItemGroup>
 </Project>

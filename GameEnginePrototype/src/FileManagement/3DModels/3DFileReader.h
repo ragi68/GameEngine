@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 //revamped 3d FILE READER
+//maybe use actual library this time?
 namespace Proto {
 	class FileRead3D {
 

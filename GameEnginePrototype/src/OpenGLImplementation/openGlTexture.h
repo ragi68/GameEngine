@@ -1,39 +1,25 @@
 #pragma once
 #include "RenderAPI/TextureAbstraction.h"
 
- //stb/clmg addon
-
 namespace Proto {
-	class openGlTexture3D : public Texture3D {
+	class openGLTexture2D : public Texture2D {
 	public:
-		openGlTexture3D(const std::string& filePath);
+		openGLTexture2D(const std::string& s);
 
-		virtual uint32_t GetWidth() override { return width; }
-		virtual uint32_t GetHeight() override { return height; }
-		virtual uint32_t GetDepth() override { return depth; }
+		virtual void Bind(int spot) override;
 
-		virtual void BindTexture(uint32_t spot) override;
+		virtual void UnBind() override;
+
+		virtual void ChangeTexture(const std::string& path) override; 
+
+		virtual int GetWidth() override { return width; }
+		virtual int GetHeight() override { return height; }
+	public: 
+		std::string t_path;
 
 	private:
-		std::string filePath;
-		int width, height, depth, channel;
-		uint32_t programID; 
-	};
-
-	class openGlTexture2D : public Texture2D {
-	public:
-		openGlTexture2D(const std::string& filePath);
-		~openGlTexture2D(); 
-		virtual uint32_t GetWidth() override { return width; }
-		virtual uint32_t GetHeight() override { return height; }
-
-		virtual void BindTexture(uint32_t spot) override;
-
-	private:
-		std::string filePath;
-		int width, height, channel;
-		uint32_t programID; 
-
+		uint32_t program;
 		
+		int width, height, channels;
 	};
 }

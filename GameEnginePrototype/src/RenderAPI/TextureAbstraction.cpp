@@ -1,23 +1,16 @@
 #include "PrecompiledHeaders.h"
 #include "TextureAbstraction.h"
-#include "RenderAPI/RenderAbstraction.h"
-#include "OpenGLImplementation/openGlTexture.h"
+#include "OpenGLImplementation/openGLTexture.h"
+#include "RenderAbstraction.h"
 
 namespace Proto {
-	Texture3D* Texture3D::CreateTexture(std::string& filePath) {
+	Texture2D* Texture2D::Create2DTexture(const std::string& texture) {
 		switch (RenderAbstraction::GetAPIType()) {
-			case API_Type::none:	return nullptr;
+		case API_Type::none:	return nullptr;
+		case API_Type::openGL:	return new openGLTexture2D(texture);
 		}
 
-		return nullptr;
-	}
-
-	std::shared_ptr<Texture2D> Texture2D::CreateTexture(const std::string& filePath) {
-		switch (RenderAbstraction::GetAPIType()) {
-			case API_Type::none:	return nullptr;
-			case API_Type::openGL:  return std::make_shared<openGlTexture2D>(filePath);
-		}
-
+		PROTO_CORE_LOG(false, "No vertex array compatible with any renderer API");
 		return nullptr;
 	}
 }

@@ -1,27 +1,24 @@
 #pragma once
-#include <string>
 #include "Proto/EntryCore.h"
-
+#include <string>
 namespace Proto {
-	class Texture {
-	public:
-		virtual uint32_t GetHeight() = 0;
-		virtual uint32_t GetWidth() = 0;
-
-		virtual void BindTexture(uint32_t spot) = 0;
-	};
-
-	class Texture3D : public Texture {
-	public:
-		Texture3D() = default;
-		virtual uint32_t GetDepth() = 0; 
-		static Texture3D* CreateTexture(std::string& filePath);
-	};
-
-
-	class Texture2D : public Texture {
+	class Texture2D {
 	public:
 		Texture2D() = default;
-		static std::shared_ptr<Texture2D> CreateTexture(const std::string& filePath);
+
+		virtual void Bind(int spot) = 0;
+		virtual void UnBind() = 0;
+
+		virtual void ChangeTexture(const std::string& path) = 0;
+
+		virtual int GetWidth() = 0;
+		virtual int GetHeight() = 0;
+
+
+		static Texture2D* Create2DTexture(const std::string& s);
+	};
+
+	class Texture3D {
+
 	};
 }

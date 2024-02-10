@@ -577,9 +577,9 @@
     <ClInclude Include="src\OpenGLImplementation\openGLIndexBuffer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLRenderer.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLShader.h" />
+    <ClInclude Include="src\OpenGLImplementation\openGLTexture.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLVertexArray.h" />
     <ClInclude Include="src\OpenGLImplementation\openGLVertexBuffer.h" />
-    <ClInclude Include="src\OpenGLImplementation\openGlTexture.h" />
     <ClInclude Include="src\OpenGLImplementation\openglcontext.h" />
     <ClInclude Include="src\PrecompiledHeaders.h" />
     <ClInclude Include="src\Proto\Application.h" />

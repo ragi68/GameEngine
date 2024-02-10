@@ -1,48 +1,47 @@
 #include "PrecompiledHeaders.h"
-#include "openGlTexture.h"
-
-#include "stb_image.h"
-
+#include "openGLTexture.h"
 #include <glad/glad.h>
-
-
-
+#include "stb_image.h"
 namespace Proto {
-	openGlTexture3D::openGlTexture3D(const std::string& filePath) : filePath(filePath) {
-		
-	}
-
-	void openGlTexture3D::BindTexture(uint32_t spot)
-	{
-	}
-
-	openGlTexture2D::openGlTexture2D(const std::string& filePath) : filePath(filePath) {
+	openGLTexture2D::openGLTexture2D(const std::string& path) : t_path(path) {
 		int w, h, c;
-		stbi_uc* image = stbi_load(filePath.c_str(), &w, &h, &c, 0);
-		width = w;
-		height = h;
-	
+		stbi_set_flip_vertically_on_load(1);
+		stbi_uc* data = stbi_load(path.c_str(), &w, &h, &c, 0);
+		glCreateTextures(GL_TEXTURE_2D, 1, &program); //maybe replace with glGenTexture
+		width = w; height = h;
+		glTextureStorage2D(GL_TEXTURE_2D, 1, GL_RGB8, width, height);
+		glBindTexture(GL_TEXTURE_2D, program);
 
-		glCreateTextures(GL_TEXTURE_2D, 1, &programID);
-		glTextureStorage2D(programID, 1, GL_RGB8, width, height);
+		glTextureParameteri(program, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTextureParameteri(program, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glTextureParameteri(programID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTextureParameteri(programID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 
-		
+		glBindTexture(GL_TEXTURE_2D, program); //binds to spot zero automatically - test bind
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);
-		stbi_image_free(image);
+
+		stbi_image_free(data);
+
+
 	}
 
-	openGlTexture2D::~openGlTexture2D() {
-		glDeleteTextures(1, &programID);
+	void openGLTexture2D::Bind(int spot) {
+		glBindTextureUnit(spot, program);
 	}
 
-	void openGlTexture2D::BindTexture(uint32_t spot) {
-		glBindTextureUnit(spot, programID);
+	void openGLTexture2D::UnBind() {
+		glDeleteTextures(1, &program);
 	}
 
+	void openGLTexture2D::ChangeTexture(const std::string& path){
+		t_path = path;
+		stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, GL_RGB8);
 
+		glTexSubImage2D(program, 0, 0, 0, width, height, GL_RGB8, GL_UNSIGNED_BYTE, data);
+
+		glBindTexture(GL_TEXTURE_2D, program);
+
+		stbi_image_free(data);
+
+	}
 }
