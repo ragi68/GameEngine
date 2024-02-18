@@ -140,13 +140,16 @@ public:
 		std::string textureFragment = R"(
 			#version 330 core
 			layout(location = 0) out vec4 color;
+
 			
 			in vec2 v_color;
 
 			uniform sampler2D test_texture;
+			vec4 texture_color;
 
 			void main(){
 				color = texture(test_texture, v_color);
+				
 			}
 		)";
 
@@ -155,16 +158,14 @@ public:
 		shader_texture.reset(Proto::ShaderAbstraction::CreateShader(textureVectors, textureFragment));
 
 		//texture2D =  Proto::Texture2D::CreateTexture("TestAssets/Cat.jpg"); abstract texture2D -> texture and make it a separate function
-		texture2D.reset(Proto::Texture2D::Create2DTexture("TestAssets/Cat2.jpg"));
+		texture2D.reset(Proto::Texture2D::Create2DTexture("TestAssets/TestTexture.jpg"));
+		texture2D_2.reset(Proto::Texture2D::Create2DTexture("TestAssets/Cat-removebg-preview.png"));
+
+
 
 		shader_texture->Bind();
 		shader_texture->BindIntData("test_texture", 0);
 
-		std::cout << texture2D->GetHeight();
-
-		std::cout << "\n";
-
-		std::cout << texture2D->GetWidth();
 		
 	}
 
@@ -184,8 +185,29 @@ public:
 		float ts = t.getTime() - pastTime;
 		pastTime = t.getTime();
 
-		if (input->checkPressed(KEY_I)) {
-			objectPos.y += 5.0f * ts;
+		if (input->checkPressed(KEY_W)) {
+			position.y += 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_A)) {
+			position.x -= 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_S)) {
+			position.y -= 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_D)) {
+			position.x += 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_E)) {
+			rotation.x += 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_R)) {
+			rotation.y += 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_Z)) {
+			position.z += 5.0f * ts;
+		}
+		if (input->checkPressed(KEY_X)) {
+			position.z -= 5.0f * ts;
 		}
 		camera.SetPosition(position);
 		camera.SetRotation(rotation);
@@ -195,11 +217,16 @@ public:
 
 
 		glm::mat4 tf = glm::translate(glm::mat4(1.0f), objectPos);
+		//renderer->DrawAndEnd(v_Array, tf, shader, camera);
+		texture2D->Bind();
 
-		texture2D->Bind(0);
-		renderer->DrawAndEnd(v_Array, tf, shader, camera);
+		renderer->DrawAndEnd(v_array_flat, tf, shader_texture, camera);
 
-	 	renderer->DrawAndEnd(v_array_flat, glm::mat4(1.0f), shader_texture, camera);
+		texture2D_2->Bind(); 
+	 	renderer->DrawAndEnd(v_array_flat, tf, shader_texture, camera); //got smthng for blending - fix goofy ahh light issue. 
+
+		err.reset(Proto::Error::SeeError());
+		err->GetErrors();
 
 		
 	}
@@ -216,6 +243,7 @@ private:
 	std::shared_ptr<Proto::IndexBufferAbstraction> i_Buffer, i_buffer_flat;
 	std::shared_ptr<Proto::VertexArrayAbstraction> v_Array, v_array_flat;
 	std::shared_ptr<Proto::Texture2D> texture2D;
+	std::shared_ptr<Proto::Texture2D> texture2D_2;
 
 
 	std::shared_ptr<Proto::RenderAbstraction> renderer;
@@ -228,7 +256,7 @@ private:
 	Proto::Camera3D camera;
 
 
-	glm::vec3 position = { 0.0f, 0.0f, 5.0f };
+	glm::vec3 position = { 0.0f, 0.0f, 2.0f };
 	glm::vec3 rotation = { 0.0f, 0.0f, 0.0f };
 	float pastTime = 0.0f;
 	float frameTime = 0.0f;

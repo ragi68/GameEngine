@@ -6,11 +6,11 @@ namespace Proto {
 	public:
 		openGLTexture2D(const std::string& s);
 
-		virtual void Bind(int spot) override;
+		virtual void Bind(uint32_t spot = 0) override;
 
 		virtual void UnBind() override;
 
-		virtual void ChangeTexture(const std::string& path) override; 
+		virtual void SetTexture(const std::string& path) override; 
 
 		virtual int GetWidth() override { return width; }
 		virtual int GetHeight() override { return height; }

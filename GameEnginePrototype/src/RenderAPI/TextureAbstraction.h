@@ -6,10 +6,10 @@ namespace Proto {
 	public:
 		Texture2D() = default;
 
-		virtual void Bind(int spot) = 0;
+		virtual void Bind(uint32_t spot = 0) = 0;
 		virtual void UnBind() = 0;
 
-		virtual void ChangeTexture(const std::string& path) = 0;
+		virtual void SetTexture(const std::string& path) = 0;
 
 		virtual int GetWidth() = 0;
 		virtual int GetHeight() = 0;
